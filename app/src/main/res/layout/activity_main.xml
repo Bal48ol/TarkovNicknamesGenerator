@@ -17,41 +17,87 @@
             android:text="Генератор ников Таркова">
         </TextView>
 
+        <EditText
+            android:id="@+id/nickEditText"
+            android:enabled="false"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+        </EditText>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="10dp">
+        </Space>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
-            <EditText
-                android:id="@+id/nickEditText"
-                android:layout_width="150dp"
+            <Button
+                android:id="@+id/nickButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center">
-            </EditText>
+                android:text="Выбрать ник">
+            </Button>
 
             <Space
-                android:layout_width="0dp"
+                android:layout_width="20dp"
                 android:layout_height="1dp">
             </Space>
 
             <Button
-                android:layout_width="172dp"
+                android:id="@+id/copyButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
-
+                android:text="Скопировать">
             </Button>
-
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/nickButton"
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="10dp">
+        </Space>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <RadioButton
+                android:id="@+id/threeRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ник из 3 символов">
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/anyRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ник от 3 до 15 символов \n(Рекомендуется)">
+            </RadioButton>
+
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/numbersCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Выбрать ник">
-        </Button>
+            android:text="Заменить буквы на цифры" >
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/translitCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Сгенерировать транслитом" >
+        </CheckBox>
 
     </LinearLayout>
 
