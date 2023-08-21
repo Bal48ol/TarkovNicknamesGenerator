@@ -1,26 +1,32 @@
 package com.example.tarkovnicknamesgenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
+
+import com.bumptech.glide.Glide;
+import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity {
     private EditText nickEditText;
@@ -30,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton anyRadioButton;
     private CheckBox numbersCheckBox;
     private CheckBox translitCheckBox;
+    private GifImageView gifImageView1;
+    private GifImageView gifImageView2;
+    private GifImageView gifImageView3;
+    private GifImageView gifImageView4;
+    private GifImageView gifImageView5;
+    private GifImageView gifImageView6;
+    private GifImageView gifImageView7;
+    private GifImageView gifImageView8;
+    private EditText escapeEditText;
+    private Button escapeButton;
+    private LinearLayout mainLinearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +60,56 @@ public class MainActivity extends AppCompatActivity {
         anyRadioButton = findViewById(R.id.anyRadioButton);
         numbersCheckBox = findViewById(R.id.numbersCheckBox);
         translitCheckBox = findViewById(R.id.translitCheckBox);
+        escapeEditText = findViewById(R.id.escapeEditText);
+        escapeButton = findViewById(R.id.escapeButton);
+        gifImageView1 = findViewById(R.id.gifImageView1);
+        gifImageView2 = findViewById(R.id.gifImageView2);
+        gifImageView3 = findViewById(R.id.gifImageView3);
+        gifImageView4 = findViewById(R.id.gifImageView4);
+        gifImageView5 = findViewById(R.id.gifImageView5);
+        gifImageView6 = findViewById(R.id.gifImageView6);
+        gifImageView7 = findViewById(R.id.gifImageView7);
+        gifImageView8 = findViewById(R.id.gifImageView8);
+        mainLinearLayout = findViewById(R.id.mainLinearLayout);
+
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.gif1)
+                .into(gifImageView1);
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.gif2)
+                .into(gifImageView2);
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.gif3)
+                .into(gifImageView3);
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.gif4)
+                .into(gifImageView4);
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.gif5)
+                .into(gifImageView5);
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.gif6)
+                .into(gifImageView6);
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.gif7)
+                .into(gifImageView7);
+        Glide.with(this)
+                .asGif()
+                .load(R.drawable.gif8)
+                .into(gifImageView8);
+
+
+        AnimationDrawable animationDrawable = (AnimationDrawable) mainLinearLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
 
         anyRadioButton.setChecked(true);
 
@@ -52,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<String> keywordsEN = new ArrayList<>();
                 Collections.addAll(keywordsEN, "Escape", "Tarkov", "Survival", "Shooter", "Military", "PMC",
                         "Raid", "Loot", "Scav", "Battlestate", "Gear", "Weapon", "Armor", "Ammo",
-                        "Quest", "Custom", "Factory",
+                        "Quest", "Custom", "Factory", "Meta",
                         "Lab", "Hideout", "Trader", "Market", "Secure", "Container", "Stash", "Health",
                         "Stamina", "Skill", "Lvl", "Level", "PVP", "PVE", "Squad",
                         "Teamplay", "Tactical", "Realism", "Hardcore", "Firefight", "Gunfight",
@@ -101,17 +168,17 @@ public class MainActivity extends AppCompatActivity {
                         "PMCex", "Raid", "Loot", "Labs", "Woods", "Ammo",
                         "Armor", "Meds", "AKM", "M4A1", "SA58", "ASVAL", "Scope", "Tagilla",
                         "SKS", "Bear", "USEC", "AK74", "M4",
-                        "ASVAL", "SKS45", "TOZ-106", "TarkovStreets",
+                        "ASVAL", "SKS45", "TOZ-106", "Streets",
                         "Armor", "Med", "Kit", "Split", "IFAK", "CMS", "Gold", "VPO", "RPK", "Toxic",
                         "Prapor", "Therapist", "Fence", "Skier", "Peacekeeper", "Mechanic", "Ragman", "Jaeger",
                         "Cheh", "Box200", "Box300", "Boxer", "Zinc", "Souls", "Fubar", "Salewa",
-                        "Chiter", "AxeMan", "Mosiner", "AKSU", "MR-133", "NATO", "NatoAK",
+                        "Chiter", "AxeMan", "Mosiner", "AKSU", "MR-133", "NATO", "NatoAK", "Rigij",
                         "Lemon", "Trofy", "FullGear", "Recumbent", "PreFire", "Tap", "OneShot", "Vendor",
                         "Nikita", "Geneburn", "Trainfender", "Bread", "DogHome", "Gozan", "Ulach", "Goshan");
 
                 ArrayList<String> uniqueKeywordsEN = keywordsEN.stream()
                         .distinct()
-                        .map(MainActivity::removeLastVowel)
+                        //.map(MainActivity::removeLastVowel)
                         .collect(Collectors.toCollection(ArrayList::new));
 
                 ArrayList<String> keywordsRU = new ArrayList<>();
@@ -120,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                         "Patrony", "Zadanie", "Kastom", "Fabrika", "Laboratoriya", "Ubezhishche", "Treider",
                         "Rynok", "Bezopasnyi", "Konteiner", "Yashchik", "Zdorove", "Vynoslivost", "Navyk",
                         "Uroven", "PVP", "PVE", "Komanda", "Komandnaya", "Takticheskij", "Realizm", "Toxic",
-                        "Hardkor", "Ukrytie", "Skrytnost", "Granata", "Pripasy",
+                        "Hardkor", "Ukrytie", "Skrytnost", "Granata", "Pripasy", "Meta",
                         "PervayaPomoshch", "Bint", "Obezbol", "Ryukzak", "SHlem", "NochnoeVidenie",
                         "Glushitel", "Optika", "Barter", "Reputaciya", "Bitkoin", "Rubl",
                         "Dollar", "Evro", "Modding", "Pricel", "Priklad", "Plastina",
@@ -129,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                         "Patron", "Mosinka", "Bronya", "Medikamenty", "AKM", "M4A1", "SA58", "ASVAL", "Pricel",
                         "RPK", "SKS", "Rubli", "Rubli", "Medkomplekt", "Razdelenie", "IFAK", "CMS", "Zoloto", "CPU",
                         "BP", "SSD", "HDD", "OZU", "5x45", "7x62", "5x56", "9x19", "Dobycha",
-                        "Tamozhnya", "Zavod", "Laboratoriya", "Rezerv", "Razvyazka", "Bereg", "Les", "UlicyTarkova",
+                        "Tamozhnya", "Zavod", "Laboratoriya", "Rezerv", "Razvyazka", "Bereg", "Les", "Ulicy",
                          "Patrony", "Bronya", "Medikamenty", "AKM", "M4A1",
                         "SA58", "ASVAL", "Snaiper", "Pricel", "Reider", "SHturm", "RPK", "SKS", "Rubli", "Rubli",
                         "BEAR", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Bronya", "MedNabor",
@@ -152,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
                         "Patrony", "Bronya", "Medicina", "Nabor", "Razdelenie", "IFAK", "Morfij", "Zoloto", "CPU", "SSD",
                         "OZU", "M995", "BS", "BT", "BP", "T45M", "VPO", "AKSU", "AKM", "CHVK",
                         "Dobycha", "Laboratorii", "Les", "Patrony", "Bronya", "Medikamenty", "AKM", "M4A1", "SA58", "ASVAL",
-                        "Tagila", "SKS", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Tozik", "Bronya",
+                        "Tagila", "SKS", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Tozik", "Bronya", "Rigij",
                         "Medicina", "Nabor", "Razdelenie", "IFAK", "CMS", "Zoloto", "VPO", "RPK", "Gruz200",
                         "Gruz300", "Bokser", "Cheh", "Duh", "Fubar", "Salewa", "Chiter", "Toporist", "Mosinist",
                         "Ksyuha", "Murka", "Dikij", "CHVK", "NATO", "NatoAK", "Limonka", "Trofei", "Fulka", "Polezhaikin",
@@ -160,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
 
                 ArrayList<String> uniqueKeywordsRU = keywordsRU.stream()
                         .distinct()
-                        .map(MainActivity::removeLastVowel)
+                        //.map(MainActivity::removeLastVowel)
                         .collect(Collectors.toCollection(ArrayList::new));
 
 
@@ -199,10 +266,132 @@ public class MainActivity extends AppCompatActivity {
                     randomNick = keywords3[random.nextInt(keywords3.length)];
                 }
 
-
-
-
                 nickEditText.setText(randomNick);
+            }
+        });
+
+        escapeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 String[] phrasesIfNotEscape = {
+                        "Жди гранаты в свою комнату!",
+                        "Ты думаешь, что Тарков отпустит тебя? Забудь!",
+                        "Здесь нет выхода, только смерть и патроны.",
+                        "Попытайся сбежать, и тебя закемпят на выходе.",
+                        "Эй, ты! Забудь о свободе, здесь ты навсегда!",
+                        "Тарков - это ловушка для слабых.",
+                        "Сбежать невозможно, как и вынести танковый аккум на 1 уровне.",
+                        "Ты можешь попытаться сбежать, но Тарков всегда найдет тебя.",
+                         "Ты поймаешь маслину от дикого."
+                };
+
+                String[] phrasesIfEscape = {
+                        "Сегодня ты сможешь сбежать из Таркова!",
+                        "Тебе выпал шанс выжить и покинуть Тарков!",
+                        "Сегодня ты сможешь покинуть Тарков и спастись!",
+                        "Cегодня ты оставишь Тарков навсегда позади!",
+                        "Сегодня ты освободишься от Таркова и начнёшь новую жизнь!",
+                        "Твоя удача повернулась к тебе - ты свободен!",
+                        "Сегодня ты перебьёшь всех чвк + диких",
+                        "Не сомневайся, сегодня ты сможешь сбежать из Таркова!",
+                        "Ты сможешь преодолеть все испытания и покинуть Тарков!",
+                        "Сегодня ты сможешь сделать невозможное - сбежать из Таркова!"
+                };
+
+                String escapeQuest = "";
+                Random random = new Random();
+                int escapeResult = random.nextInt(8); // Генерируем случайное значение 0 или 1
+
+                if (escapeResult == 0) {
+                    gifImageView2.setVisibility(View.GONE);
+                    gifImageView3.setVisibility(View.GONE);
+                    gifImageView4.setVisibility(View.GONE);
+                    gifImageView5.setVisibility(View.GONE);
+                    gifImageView6.setVisibility(View.GONE);
+                    gifImageView7.setVisibility(View.GONE);
+                    gifImageView8.setVisibility(View.GONE);
+                    escapeQuest = phrasesIfNotEscape[random.nextInt(phrasesIfNotEscape.length)];
+                    gifImageView1.setVisibility(View.VISIBLE);
+                }
+                else if (escapeResult == 1) {
+                    gifImageView1.setVisibility(View.GONE);
+                    gifImageView3.setVisibility(View.GONE);
+                    gifImageView4.setVisibility(View.GONE);
+                    gifImageView5.setVisibility(View.GONE);
+                    gifImageView6.setVisibility(View.GONE);
+                    gifImageView7.setVisibility(View.GONE);
+                    gifImageView8.setVisibility(View.GONE);
+                    escapeQuest = phrasesIfNotEscape[random.nextInt(phrasesIfNotEscape.length)];
+                    gifImageView2.setVisibility(View.VISIBLE);
+                }
+                else if (escapeResult == 2) {
+                    gifImageView1.setVisibility(View.GONE);
+                    gifImageView2.setVisibility(View.GONE);
+                    gifImageView4.setVisibility(View.GONE);
+                    gifImageView5.setVisibility(View.GONE);
+                    gifImageView6.setVisibility(View.GONE);
+                    gifImageView7.setVisibility(View.GONE);
+                    gifImageView8.setVisibility(View.GONE);
+                    escapeQuest = phrasesIfNotEscape[random.nextInt(phrasesIfNotEscape.length)];
+                    gifImageView3.setVisibility(View.VISIBLE);
+                }
+                else if (escapeResult == 3) {
+                    gifImageView1.setVisibility(View.GONE);
+                    gifImageView3.setVisibility(View.GONE);
+                    gifImageView4.setVisibility(View.GONE);
+                    gifImageView5.setVisibility(View.GONE);
+                    gifImageView2.setVisibility(View.GONE);
+                    gifImageView7.setVisibility(View.GONE);
+                    gifImageView8.setVisibility(View.GONE);
+                    escapeQuest = phrasesIfNotEscape[random.nextInt(phrasesIfNotEscape.length)];
+                    gifImageView6.setVisibility(View.VISIBLE);
+                }
+                else if (escapeResult == 4) {
+                    gifImageView1.setVisibility(View.GONE);
+                    gifImageView3.setVisibility(View.GONE);
+                    gifImageView2.setVisibility(View.GONE);
+                    gifImageView5.setVisibility(View.GONE);
+                    gifImageView6.setVisibility(View.GONE);
+                    gifImageView7.setVisibility(View.GONE);
+                    gifImageView8.setVisibility(View.GONE);
+                    escapeQuest = phrasesIfEscape[random.nextInt(phrasesIfEscape.length)];
+                    gifImageView4.setVisibility(View.VISIBLE);
+                }
+                else if (escapeResult == 5) {
+                    gifImageView1.setVisibility(View.GONE);
+                    gifImageView3.setVisibility(View.GONE);
+                    gifImageView4.setVisibility(View.GONE);
+                    gifImageView2.setVisibility(View.GONE);
+                    gifImageView6.setVisibility(View.GONE);
+                    gifImageView7.setVisibility(View.GONE);
+                    gifImageView8.setVisibility(View.GONE);
+                    escapeQuest = phrasesIfEscape[random.nextInt(phrasesIfEscape.length)];
+                    gifImageView5.setVisibility(View.VISIBLE);
+                }
+                else if (escapeResult == 6) {
+                    gifImageView1.setVisibility(View.GONE);
+                    gifImageView3.setVisibility(View.GONE);
+                    gifImageView4.setVisibility(View.GONE);
+                    gifImageView5.setVisibility(View.GONE);
+                    gifImageView6.setVisibility(View.GONE);
+                    gifImageView2.setVisibility(View.GONE);
+                    gifImageView8.setVisibility(View.GONE);
+                    escapeQuest = phrasesIfEscape[random.nextInt(phrasesIfEscape.length)];
+                    gifImageView7.setVisibility(View.VISIBLE);
+                }
+                else {
+                    gifImageView1.setVisibility(View.GONE);
+                    gifImageView3.setVisibility(View.GONE);
+                    gifImageView4.setVisibility(View.GONE);
+                    gifImageView5.setVisibility(View.GONE);
+                    gifImageView6.setVisibility(View.GONE);
+                    gifImageView7.setVisibility(View.GONE);
+                    gifImageView2.setVisibility(View.GONE);
+                    escapeQuest = phrasesIfEscape[random.nextInt(phrasesIfEscape.length)];
+                    gifImageView8.setVisibility(View.VISIBLE);
+                }
+
+                escapeEditText.setText(escapeQuest);
             }
         });
 
@@ -272,6 +461,7 @@ public class MainActivity extends AppCompatActivity {
                 "Radiation", "Anomaly", "Stalker", "Artifact", "Bar", "Monolith", "Pripyat", "Storm", "Radar", "Defender");
         ArrayList<String> uniqueSecondWordEN = secondWordEN.stream()
                 .distinct()
+                .map(MainActivity::removeLastVowel)
                 .collect(Collectors.toCollection(ArrayList::new));
 
         ArrayList<String> secondWordRU = new ArrayList<>();
@@ -304,6 +494,7 @@ public class MainActivity extends AppCompatActivity {
                 "Bar", "Monolit", "Pripyat", "Shtorm", "Radar", "Zashchitnik");
         ArrayList<String> uniqueSecondWordRU = secondWordRU.stream()
                 .distinct()
+                .map(MainActivity::removeLastVowel)
                 .collect(Collectors.toCollection(ArrayList::new));
 
 //        String[] usecArray = {

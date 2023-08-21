@@ -7,4 +7,5 @@
     <color name="startColor">#EF6940</color>
     <color name="centerColor">#FFFFFFFF</color>
     <color name="endColor">#EF6940</color>
+    <color name="grey">#1C1B1F</color>
 </resources>

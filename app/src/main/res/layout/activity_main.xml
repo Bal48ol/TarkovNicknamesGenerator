@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_list"
+    android:id="@+id/mainLinearLayout"
     android:orientation="vertical">
 
     <View
@@ -10,6 +12,7 @@
         android:background="@drawable/gradient_line"/>
 
     <LinearLayout
+        android:id="@+id/firstLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="1"
@@ -28,23 +31,35 @@
             android:text="Генератор ников Таркова">
         </TextView>
 
-        <EditText
-            android:id="@+id/nickEditText"
-            android:layout_width="379dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@null"
-            android:enabled="false"
-            android:fontFamily="sans-serif-thin"
-            android:gravity="center"
-            android:text="Меня зовут..."
-            android:textSize="40dp">
-        </EditText>
-
-        <View
+        <LinearLayout
+            android:id="@+id/buttonLayout1"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@drawable/gradient_line_reverse" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="end">
+
+            <EditText
+                android:id="@+id/nickEditText"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:enabled="false"
+                android:fontFamily="sans-serif-thin"
+                android:gravity="center"
+                android:text="Меня зовут..."
+                android:textSize="40dp">
+            </EditText>
+
+            <View
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_height="1dp"
+                android:background="@drawable/gradient_line_reverse"/>
+
+        </LinearLayout>
 
         <Space
             android:layout_width="20dp"
@@ -61,7 +76,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Выбрать ник"
-                android:background="@drawable/button_background"
                 android:fontFamily="sans-serif">
             </Button>
 
@@ -152,6 +166,7 @@
         android:background="@drawable/gradient_line"/>
 
     <LinearLayout
+        android:id="@+id/secondLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="1"
@@ -165,10 +180,118 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:fontFamily="sans-serif"
+            android:gravity="center"
             android:text="Сегодня ты сбежишь из Таркова?">
         </TextView>
+
+        <LinearLayout
+            android:id="@+id/buttonLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="end">
+
+            <EditText
+                android:id="@+id/escapeEditText"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:enabled="false"
+                android:fontFamily="sans-serif-thin"
+                android:gravity="center"
+                android:text="..."
+                android:textSize="30dp">
+            </EditText>
+
+            <View
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_height="1dp"
+                android:background="@drawable/gradient_line_reverse"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp">
+        </Space>
+
+        <Button
+            android:id="@+id/escapeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Узнать правду"
+            android:fontFamily="sans-serif">
+        </Button>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView1"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView2"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView3"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView4"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView5"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView6"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView7"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView8"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
 
     </LinearLayout>
 
