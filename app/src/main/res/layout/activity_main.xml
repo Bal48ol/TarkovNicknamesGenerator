@@ -78,7 +78,7 @@
                 android:id="@+id/anyRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ник от 3 до 15 символов \n(Рекомендуется)">
+                android:text="Ник от 3 до 15 символов">
             </RadioButton>
 
         </RadioGroup>

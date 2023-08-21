@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                         "Prapor", "Therapist", "Fence", "Skier", "Peacekeeper", "Mechanic", "Ragman", "Jaeger",
                         "Cheh", "Box200", "Box300", "Boxer", "Zinc", "Souls", "Fubar", "Salewa",
                         "Chiter", "AxeMan", "Mosiner", "AKSU", "MR-133", "NATO", "NatoAK",
-                        "Lemon", "Trofy", "FullGear", "Polejaikin", "PreFire", "Tap", "OneShot", "Vendor",
+                        "Lemon", "Trofy", "FullGear", "Recumbent", "PreFire", "Tap", "OneShot", "Vendor",
                         "Nikita", "Geneburn", "Trainfender", "Bread", "DogHome");
 
                 ArrayList<String> uniqueKeywordsEN = keywordsEN.stream()
@@ -114,39 +114,39 @@ public class MainActivity extends AppCompatActivity {
                         .collect(Collectors.toCollection(ArrayList::new));
 
                 ArrayList<String> keywordsRU = new ArrayList<>();
-                Collections.addAll(keywordsRU, "Pobeg", "Tarkov", "Vyzhivanie", "Shuter", "Voennyj",
-                        "CHVK", "Rejd", "Dobycha", "Dikiy", "Battlestate", "Snaryazhenie", "Oruzhie", "Bronya",
-                        "Patrony", "Zadanie", "Kastom", "Fabrika", "Laboratoriya", "Ubezhishche", "Trejder",
-                        "Rynok", "Bezopasnyj", "Kontejner", "Yashchik", "Zdorove", "Vynoslivost", "Navyk",
+                Collections.addAll(keywordsRU, "Pobeg", "Tarkov", "Vyzhivanie", "Shuter", "Voennyi",
+                        "CHVK", "Reid", "Dobycha", "Dikiy", "Battlestate", "Snaryazhenie", "Oruzhie", "Bronya",
+                        "Patrony", "Zadanie", "Kastom", "Fabrika", "Laboratoriya", "Ubezhishche", "Treider",
+                        "Rynok", "Bezopasnyi", "Konteiner", "Yashchik", "Zdorove", "Vynoslivost", "Navyk",
                         "Uroven", "PVP", "PVE", "Komanda", "Komandnaya", "Takticheskij", "Realizm", "Toxic",
                         "Hardkor", "Ukrytie", "Skrytnost", "Granata", "Pripasy",
-                        "Pervaya pomoshch", "Bint", "Obezbolivayushchee", "Ryukzak", "SHlem", "Nochnoe videnie",
-                        "Glushitel", "Optika", "Prisposoblenie", "Barter", "Reputaciya", "Bitkoin", "Rubli",
-                        "Dollary", "Evro", "Modding", "Pricel", "Predpuskovoi", "Priklad", "Broneplastin",
-                        "SHlem", "Tochka", "Zona", "Vremya", "Taktika", "Kemping", "Kemper", "Lager", "Distanciya",
+                        "PervayaPomoshch", "Bint", "Obezbol", "Ryukzak", "SHlem", "NochnoeVidenie",
+                        "Glushitel", "Optika", "Barter", "Reputaciya", "Bitkoin", "Rubl",
+                        "Dollar", "Evro", "Modding", "Pricel", "Priklad", "Plastina",
+                        "Shlem", "Tochka", "Zona", "Vremya", "Taktika", "Kemping", "Kemper", "Lager", "Distanciya",
                         "Karta", "Klyuch", "Rukovodstvo", "Strategiya", "Sovet", "GamePlay", "Reid", "Dobycha",
                         "Patron", "Mosinka", "Bronya", "Medikamenty", "AKM", "M4A1", "SA58", "ASVAL", "Pricel",
                         "RPK", "SKS", "Rubli", "Rubli", "Medkomplekt", "Razdelenie", "IFAK", "CMS", "Zoloto", "CPU",
                         "BP", "SSD", "HDD", "OZU", "5x45", "7x62", "5x56", "9x19", "Dobycha",
                         "Tamozhnya", "Zavod", "Laboratoriya", "Rezerv", "Razvyazka", "Bereg", "Les", "UlicyTarkova",
-                         "Patrony", "Bronya", "Medikamenty", "Ekstrakt", "AKM", "M4A1",
-                        "SA58", "ASVAL", "Snajper", "Pricel", "Rejder", "SHturm", "RPK", "SKS", "Rubli", "Rubli",
+                         "Patrony", "Bronya", "Medikamenty", "AKM", "M4A1",
+                        "SA58", "ASVAL", "Snaiper", "Pricel", "Reider", "SHturm", "RPK", "SKS", "Rubli", "Rubli",
                                 "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Bronya", "MedNabor",
                         "IFAK", "CMS", "Zoloto", "CPU", "SSD", "OZU", "M995", "BS",
-                        "BT", "BP", "T45M", "VPO", "AKSU", "AKM", "CHVK", "Rejdy", "Dobycha",
-                                "Pricel", "Rejder", "Killa", "SKS", "Rubli",
-                        "Snaryazhenie", "Tark", "Eksfil", "CHVK", "SVD", "AK74", "M1A", "SKS", "RSASS", "M700",
-                        "MP5", "AKS", "AKMS", "Sajga", "VSS", "VAL", "M9", "MPX", "PP-19", "P90", "Glock", "Makarov",
+                        "BT", "BP", "T45M", "VPO", "AKSU", "AKM", "CHVK", "Dobycha",
+                                "Pricel", "Reider", "Killa", "SKS", "Rubli",
+                        "Snaryazhenie", "CHVK", "SVD", "AK74", "M1A", "SKS", "RSASS", "M700",
+                        "MP5", "AKS", "AKMS", "Saiga", "VSS", "VAL", "M9", "MPX", "PP-19", "P90", "Glock", "Makarov",
                         "TT", "Grach", "APS", "APB", "MP443", "Killa", "Reshala", "Sanitar", "Gluhar", "Shturman",
                         "Kult", "Tagila", "Snaiper", "Boss", "Torgovec", "Naemnik", "Zhulik", "Nomad", "Otshelnik",
-                        "Rukovodstvo", "Prizrak", "Stalker", "ZHnec", "Hishchnik", "Sabotazhnik", "Ohotnik",
+                        "Rukovodstvo", "Prizrak", "Stalker", "Zhnec", "Hishchnik", "Sabotazhnik", "Ohotnik",
                         "Ispolnitel", "Razrushitel", "Vandal", "Maroder", "Bandit",
-                        "Vne zakona", "Reider", "Naemnik", "Strelok", "Lezvie", "Krestonosec", "Berserk", "Viking",
-                        "Razbojnik", "Vor", "Bandit", "Skaut", "Pervoprohodec", "Vyzhivshij", "Kapitan", "Komandir",
-                        "Lider", "Strateg", "Taktik", "Inzhener", "Uchenyj", "Pilot", "Navigator", "Voditel",
+                        "VneZakona", "Reider", "Naemnik", "Strelok", "Lezvie", "Krestonosec", "Berserk", "Viking",
+                        "Razboinik", "Vor", "Bandit", "Skaut", "Pervoprohodec", "Vyzhivshij", "Kapitan", "Komandir",
+                        "Lider", "Strateg", "Taktik", "Inzhener", "Uchenyi", "Pilot", "Navigator", "Voditel",
                         "Prapor", "Terapevt", "Skupshchik", "Lyzhnik", "Mirotvorec", "Mekhanik", "Baraholshchik", "Eger",
                         "Vsadnik", "Tank", "Vyshibala", "Drobilka", "Ubijca", "Ispolnitel", "Annigilyator",
-                        "Pokoritel", "Plut", "Rejd", "Dobycha", "Les", "Patrony", "Bronya", "Medikamenty", "Mosin", "AKM", "M4A1",
+                        "Pokoritel", "Plut", "Reid", "Dobycha", "Les", "Patrony", "Bronya", "Medikamenty", "Mosin", "AKM", "M4A1",
                         "SA58", "ASVAL", "Pricel", "Killa", "Vepr", "SKS", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45",
                         "Patrony", "Bronya", "Medicina", "Nabor", "Razdelenie", "IFAK", "Morfij", "Zoloto", "CPU", "SSD",
                         "OZU", "M995", "BS", "BT", "BP", "T45M", "VPO", "AKSU", "AKM", "CHVK",
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                         "Tagila", "SKS", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Tozik", "Bronya",
                         "Medicina", "Nabor", "Razdelenie", "IFAK", "CMS", "Zoloto", "VPO", "RPK", "Gruz200",
                         "Gruz300", "Bokser", "Cheh", "Duh", "Fubar", "Salewa", "Chiter", "Toporist", "Mosinist",
-                        "Ksyuha", "Murka", "Dikij", "CHVK", "NATO", "NatoAK", "Limonka", "Trofei", "Fulka", "Polezhajkin",
+                        "Ksyuha", "Murka", "Dikij", "CHVK", "NATO", "NatoAK", "Limonka", "Trofei", "Fulka", "Polezhaikin",
                         "Prifaer", "Tap", "Vanshot", "Torgovec", "Nikita", "Baton", "Budka", "Geneburn");
 
                 ArrayList<String> uniqueKeywordsRU = keywordsRU.stream()
@@ -187,16 +187,16 @@ public class MainActivity extends AppCompatActivity {
                 String randomNick = "";
                 Random random = new Random();
 
-                if(threeRadioButton.isChecked()){
+                if (anyRadioButton.isChecked() && translitCheckBox.isChecked()) {
+                    randomNick = generateRandomNickname(uniqueKeywordsRU, random);
+                } else if (anyRadioButton.isChecked()) {
+                    randomNick = generateRandomNickname(uniqueKeywordsEN, random);
+                } else if (threeRadioButton.isChecked()) {
                     numbersCheckBox.setChecked(false);
+                    translitCheckBox.setChecked(false);
                     randomNick = keywords3[random.nextInt(keywords3.length)];
                 }
-                else if(anyRadioButton.isChecked()){
-                    randomNick = generateRandomNickname(uniqueKeywordsEN, random);
-                }
-                else if(anyRadioButton.isChecked() && translitCheckBox.isChecked()){
-                    randomNick = generateRandomNickname(uniqueKeywordsRU, random);
-                }
+
 
 
 
@@ -224,16 +224,22 @@ public class MainActivity extends AppCompatActivity {
     private String generateRandomNickname(ArrayList<String> keywords, Random random) {
         String keyword = keywords.get(random.nextInt(keywords.size()));
 
-        String[] prefixes = {"Un", "Re", "Pre", "Dis", "Mis", "En", "Ex", "In", "Im",
+        String[] prefixesEN = {"Un", "Re", "Pre", "Dis", "Mis", "En", "Ex", "In", "Im",
                 "Non", "Over", "Under", "Sub", "Super", "Inter", "Anti", "Auto",
                 "Bi", "Co", "De", "Extra", "Fore", "Hyper", "Mega", "Micro", "Mini",
-                "Multi", "Out", "Post", "Tri"};
+                "Multi", "Out", "Post", "Tri", "Grand"};
 
-        String[] suffixes = {"able", "al", "en", "ful", "ic", "ive", "less", "ly", "ous", "y",
+        String[] prefixesRU = {"Pri", "Ne", "Za", "Vse", "Super", "Mega", "Maksi", "Ultra", "Top",
+                "Eks", "Giper", "Anti", "Bez", "Super", "Veliko", "Malo", "Chudo"};
+
+        String[] suffixesEN = {"able", "al", "en", "ful", "ic", "ive", "less", "ly", "ous", "y",
                 "er", "est", "ing", "ed"};
 
-        ArrayList<String> secondWord = new ArrayList<>();
-        Collections.addAll(secondWord, "Pro", "Player", "Shadow", "Reaper", "Ghost", "Viper", "Havoc", "Sentinel",
+        String[] suffixesRU = {"li", "ov", "ik", "er", "ych", "un", "en", "ec", "on", "ar",
+                "an", "in", "ysh", "iks", "el", "ec", "oza", "un"};
+
+        ArrayList<String> secondWordEN = new ArrayList<>();
+        Collections.addAll(secondWordEN, "Pro", "Player", "Shadow", "Reaper", "Ghost", "Viper", "Havoc", "Sentinel",
                 "Ravage", "Sniper", "Mercenary", "Bandit", "Outlaw", "Rogue", "Saboteur", "Wraith",
                 "Warlock", "Enigma", "Vanguard", "Nemesis", "Blitz", "Stryker", "Fury", "Venom", "Hazard",
                 "Hunter", "Scorpion", "Phantom", "Spectre", "Titan", "Juggernaut", "Commando",
@@ -258,11 +264,43 @@ public class MainActivity extends AppCompatActivity {
                 "Artifact", "Mutant", "Stalker", "Anomaly", "Pripyat", "Pseudodog", "Monolith", "Thunder", "Radiation",
                 "ClearSky", "Barguzin", "Needle", "Chernobyl", "FrostyPeak", "Freedom", "Duty", "Operation", "Arsenal", "Storm",
                 "Radar", "Bear", "Pripyat", "Abandoned", "MarkedOne", "Bloodsucker", "Lazarus",
-                "Warrior", "Bandit", "RadioTower", "Chernobylite", "Hydroponics", "Strelok", "Lull", "Bear", "Factory", "Cleansing",
-                "Pripyat", "Army", "Death", "Chernobylite", "Special", "Monolith", "Storm", "Zonal", "Bar", "Chernobylite", "Sky",
+                "Warrior", "Bandit", "RadioTower", "Hydroponics", "Strelok", "Lull", "Bear", "Factory", "Cleansing",
+                "Pripyat", "Army", "Death", "Special", "Monolith", "Storm", "Zonal", "Bar", "Sky",
                 "Catastrophe", "Pseudogiant", "Laser", "Purity", "Freedom", "Squad", "Pripyat", "Fire", "Mutant", "Zone",
-                "Radiation", "Anomaly", "Stalker", "Artifact", "Bar", "Monolith", "Pripyat", "Storm", "Radar", "Chernobyl", "Defender");
-        ArrayList<String> uniqueSecondWord = secondWord.stream()
+                "Radiation", "Anomaly", "Stalker", "Artifact", "Bar", "Monolith", "Pripyat", "Storm", "Radar", "Defender");
+        ArrayList<String> uniqueSecondWordEN = secondWordEN.stream()
+                .distinct()
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        ArrayList<String> secondWordRU = new ArrayList<>();
+        Collections.addAll(secondWordRU, "Pro", "Igrok", "Ten", "Prizrak", "Gadyuka", "Haos",
+                "Strazh", "Razorenie", "Snajper", "Nayomnik", "Bandit", "VneZakona", "Izgoi", "Sabotazh",
+                "Prizrak", "Koldun", "Zagadka", "Avangard", "Vrag", "Blic", "Straiker", "Yarost", "Yad", "Opasnost",
+                "Ohotnik", "Skorpion", "Fantom", "Prizrak", "Titan", "Dzhagernaut", "Komandos", "Maverik", "Nachalnik",
+                "Otchayannyi", "Metkij", "Taktik", "Ohotnik", "Razvedchik", "Ronin", "Palach", "Annigilyator", "Karatel",
+                "Bezzhalostnyi", "Mest", "Buistvo", "Haos", "Razoritel", "Dikar", "Dominator", "Mest", "Klinok",
+                "Pistoleter", "Izmelchitel", "Shtorm", "Grubiyan", "Berserk", "Razrushitel",
+                "Grenader", "Sabotazhnik", "Sablya", "Klich", "Grom", "Shtorm", "Ciklon",
+                "Burya", "Lavina", "Metel", "Inferno", "Pozhar", "Feniks", "Zmei", "Kobra",
+                "Hishchnik", "Sokol", "Volk", "Stervyatnik", "Medved", "USEK", "Pantera", "Lev", "Tigr", "Nosorog",
+                "Drakon", "Grifon", "Feniks", "Gidra", "Himera", "Leviafan", "Kraken", "Zhnec", "Prizrak", "Fantom",
+                "Koshmar", "Profi", "Voin", "Nindzya", "Snaiper", "Geimer", "Legenda", "Master",
+                "Chempion", "Geroi", "Ubiica", "Ohotnik", "Prizrak", "Spartanec", "Samurai", "Fantom", "Dzhoker",
+                "Kiborg", "Pirat", "Kommandos", "Spasitel", "Mstitel", "Strazh", "Gladiator", "Nayomnik",
+                "Gadyuka", "Razrushitel", "Ispolnitel", "Kochevnik", "Prorok", "Drachun",
+                "Dikar", "Strelok", "Pistoleter", "Klinok",
+                "Krestonosec", "Berserk", "Viking", "Izgoi", "Vor", "Bandit", "Razvedchik", "Pioner", "Vyzhivshij",
+                "Kapitan", "Komandir", "Lider", "Strateg", "Taktik", "Inzhener", "Pilot", "Navigator", "Voditel", "Vsadnik",
+                "Dzhaggernaut", "Tank", "Grubiyan",
+                "Vyshibala", "Drobilshik", "Ubijca", "Ispolnitel", "Annigilyator", "Zavoevatel", "Artefakt", "Mutant",
+                "Stalker", "Anomaliya", "Pripyat", "Psevdopes", "Monolit", "Grom", "Radiaciya", "ChistoeNebo",
+                "Igla", "Chernobyl", "Svoboda", "Dolg", "Operaciya", "Arsenal", "Shtorm", "Radar", "Medved",
+                "Pripyat", "Zabroshka", "Krovosos", "Lazar", "Voin", "Bandit",
+                "Gidroponika", "Zatishe", "Medved", "Zavod", "Pripyat", "Smert",
+                "Monolit", "Shtorm", "Zonalnyi", "Bar", "Nebo", "Katastrofa", "Lazer",
+                "Svoboda", "Komanda", "Pripyat", "Ogon", "Mutant", "Zona", "Radiaciya", "Anomaliya", "Stalker", "Artefakt",
+                "Bar", "Monolit", "Pripyat", "Shtorm", "Radar", "Zashchitnik");
+        ArrayList<String> uniqueSecondWordRU = secondWordRU.stream()
                 .distinct()
                 .collect(Collectors.toCollection(ArrayList::new));
 
@@ -295,19 +333,10 @@ public class MainActivity extends AppCompatActivity {
 
         String randomNickname = "";
         String selectedPreset = "";
-        if (anyRadioButton.isChecked()) {
-            if (translitCheckBox.isChecked()) {
-                // код для генерации никнейма на основе uniqueKeywordsRU
-            }
-            else {
-                // код для генерации никнейма на основе uniqueKeywordsEN
-            }
-        }
-        if (anyRadioButton.isChecked() || (anyRadioButton.isChecked() && translitCheckBox.isChecked())) {
-            String suffix = suffixes[random.nextInt(suffixes.length)];
-            String prefix = prefixes[random.nextInt(prefixes.length)];
-            String secWord = uniqueSecondWord.get(random.nextInt(uniqueSecondWord.size()));
-            ;
+        if (anyRadioButton.isChecked() && translitCheckBox.isChecked()) {
+            String suffix = suffixesRU[random.nextInt(suffixesRU.length)];
+            String prefix = prefixesRU[random.nextInt(prefixesRU.length)];
+            String secWord = uniqueSecondWordRU.get(random.nextInt(uniqueSecondWordRU.size()));
 
             String[] presets = {
                     prefix + replacedKeyword,
@@ -351,19 +380,31 @@ public class MainActivity extends AppCompatActivity {
                         selectedPreset = selectedPreset.replaceFirst(suffix, "");
                         selectedPreset = selectedPreset.replaceFirst(prefix, "");
                         if(selectedPreset.length() > 15){
-                            selectedPreset = selectedPreset.replaceFirst(secWord, "");
+                            if (selectedPreset.contains("-") || selectedPreset.contains("_")) {
+                                selectedPreset = selectedPreset.replaceFirst("-" + secWord, "");
+                                selectedPreset = selectedPreset.replaceFirst("_" + secWord, "");
+                            }
+                            else {
+                                selectedPreset = selectedPreset.replaceFirst(secWord, "");
+                            }
                             selectedPreset += suffix;
                             selectedPreset = prefix + selectedPreset;
                         }
+
                     }
 
-                    Log.d("Preset", "preset: " + selectedPreset);
+                    Log.d("Preset", "presetRu: " + selectedPreset);
                     Log.d("Length", "secWord_TRUE: " + secWord.length() + secWord);
                     Log.d("Length", "suffix: " + suffix.length() + suffix);
                     Log.d("Length", "prefix: " + prefix.length() + prefix);
                     Log.d("Length", "---------");
                 }
                 else {
+                    if(selectedPreset.contains("-") || selectedPreset.contains("_")){
+                        selectedPreset = selectedPreset.replaceFirst("-", "");
+                        selectedPreset = selectedPreset.replaceFirst("_", "");
+                    }
+
                     if (!selectedPreset.contains(suffix)) {
                         selectedPreset += suffix;
                     }
@@ -384,7 +425,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-                    Log.d("Preset", "preset: " + selectedPreset);
+                    Log.d("Preset", "presetRU: " + selectedPreset);
                     Log.d("Length", "secWord_FALSE: " + secWord.length() + secWord);
                     Log.d("Length", "suffix: " + suffix.length() + suffix);
                     Log.d("Length", "prefix: " + prefix.length() + prefix);
@@ -397,7 +438,113 @@ public class MainActivity extends AppCompatActivity {
                 //randomNickname = "-";
             }
         }
+
+        else {
+            String suffix = suffixesEN[random.nextInt(suffixesEN.length)];
+            String prefix = prefixesEN[random.nextInt(prefixesEN.length)];
+            String secWord = uniqueSecondWordEN.get(random.nextInt(uniqueSecondWordEN.size()));
+
+            String[] presets = {
+                    prefix + replacedKeyword,
+                    replacedKeyword + suffix,
+                    prefix + replacedKeyword + suffix,
+                    replacedKeyword + secWord,
+                    prefix + replacedKeyword + secWord,
+                    prefix + replacedKeyword + "_" + secWord,
+                    prefix + replacedKeyword + "-" + secWord,
+                    replacedKeyword + secWord + suffix,
+                    replacedKeyword + "_" + secWord + suffix,
+                    replacedKeyword + "-" + secWord + suffix,
+            };
+
+            randomNickname = presets[random.nextInt(presets.length)];
+            selectedPreset = randomNickname;
+
+            int maxAttempts = 10;
+            int attempts = 0;
+            while (selectedPreset.length() > 15 && attempts < maxAttempts) {
+                if (selectedPreset.contains(secWord)) {
+                    if ((suffix.length() + prefix.length()) < secWord.length()) {
+                        if (selectedPreset.contains("-") || selectedPreset.contains("_")) {
+                            selectedPreset = selectedPreset.replaceFirst("-" + secWord, "");
+                            selectedPreset = selectedPreset.replaceFirst("_" + secWord, "");
+                            if (!selectedPreset.contains(suffix)) {
+                                selectedPreset += suffix;
+                            } else if (!selectedPreset.contains(prefix)) {
+                                selectedPreset = prefix + selectedPreset;
+                            }
+                        } else {
+                            selectedPreset = selectedPreset.replaceFirst(secWord, "");
+                            selectedPreset = selectedPreset.replaceFirst(secWord, "");
+                            if (!selectedPreset.contains(suffix)) {
+                                selectedPreset += suffix;
+                            } else if (!selectedPreset.contains(prefix)) {
+                                selectedPreset = prefix + selectedPreset;
+                            }
+                        }
+                    }
+                    else if ((suffix.length() + prefix.length()) >= secWord.length()) {
+                        selectedPreset = selectedPreset.replaceFirst(suffix, "");
+                        selectedPreset = selectedPreset.replaceFirst(prefix, "");
+                        if(selectedPreset.length() > 15){
+                            if (selectedPreset.contains("-") || selectedPreset.contains("_")) {
+                                selectedPreset = selectedPreset.replaceFirst("-" + secWord, "");
+                                selectedPreset = selectedPreset.replaceFirst("_" + secWord, "");
+                            }
+                            else {
+                                selectedPreset = selectedPreset.replaceFirst(secWord, "");
+                            }
+                            selectedPreset += suffix;
+                            selectedPreset = prefix + selectedPreset;
+                        }
+                    }
+
+                    Log.d("Preset", "presetEN: " + selectedPreset);
+                    Log.d("Length", "secWord_TRUE: " + secWord.length() + secWord);
+                    Log.d("Length", "suffix: " + suffix.length() + suffix);
+                    Log.d("Length", "prefix: " + prefix.length() + prefix);
+                    Log.d("Length", "---------");
+                }
+                else {
+                    if(selectedPreset.contains("-") || selectedPreset.contains("_")){
+                        selectedPreset = selectedPreset.replaceFirst("-", "");
+                        selectedPreset = selectedPreset.replaceFirst("_", "");
+                    }
+
+                    if (!selectedPreset.contains(suffix)) {
+                        selectedPreset += suffix;
+                    }
+                    else if (!selectedPreset.contains(prefix)) {
+                        selectedPreset = prefix + selectedPreset;
+                    }
+
+                    if(selectedPreset.length() > 15){
+                        if(suffix.length() > prefix.length()){
+                            selectedPreset = selectedPreset.replaceFirst(suffix, "");
+                        }
+                        else selectedPreset = selectedPreset.replaceFirst(prefix, "");
+                        if(selectedPreset.length() > 15){
+                            if (selectedPreset.contains(suffix)) {
+                                selectedPreset = selectedPreset.replaceFirst(suffix, "");
+                            }
+                            else selectedPreset = selectedPreset.replaceFirst(prefix, "");
+                        }
+                    }
+
+                    Log.d("Preset", "presetEN: " + selectedPreset);
+                    Log.d("Length", "secWord_FALSE: " + secWord.length() + secWord);
+                    Log.d("Length", "suffix: " + suffix.length() + suffix);
+                    Log.d("Length", "prefix: " + prefix.length() + prefix);
+                    Log.d("Length", "---------");
+                }
+                attempts++;
+            }
+            if (selectedPreset.length() > 15 || selectedPreset.length() < 3) {
+                Toast.makeText(MainActivity.this, "Генератор задумался. Попробуйте ещё раз", Toast.LENGTH_SHORT).show();
+                //randomNickname = "-";
+            }
+        }
+
         return selectedPreset;
     }
-
 }
