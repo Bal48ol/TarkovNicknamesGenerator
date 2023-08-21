@@ -4,31 +4,51 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/gradient_line"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="10dp">
+        </Space>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:fontFamily="sans-serif"
             android:text="Генератор ников Таркова">
         </TextView>
 
         <EditText
             android:id="@+id/nickEditText"
-            android:enabled="false"
-            android:layout_width="200dp"
+            android:layout_width="379dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:background="@null"
+            android:enabled="false"
+            android:fontFamily="sans-serif-thin"
+            android:gravity="center"
+            android:text="Меня зовут..."
+            android:textSize="40dp">
         </EditText>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/gradient_line_reverse" />
 
         <Space
             android:layout_width="20dp"
-            android:layout_height="10dp">
+            android:layout_height="20dp">
         </Space>
 
         <LinearLayout
@@ -40,7 +60,9 @@
                 android:id="@+id/nickButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Выбрать ник">
+                android:text="Выбрать ник"
+                android:background="@drawable/button_background"
+                android:fontFamily="sans-serif">
             </Button>
 
             <Space
@@ -52,6 +74,7 @@
                 android:id="@+id/copyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
                 android:text="Скопировать">
             </Button>
 
@@ -63,48 +86,70 @@
         </Space>
 
         <RadioGroup
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
 
             <RadioButton
                 android:id="@+id/threeRadioButton"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:layout_gravity="center"
                 android:text="Ник из 3 символов">
             </RadioButton>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gradient_line_reverse" />
+
             <RadioButton
                 android:id="@+id/anyRadioButton"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
                 android:text="Ник от 3 до 15 символов">
             </RadioButton>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gradient_line_reverse" />
+
+            <CheckBox
+                android:id="@+id/numbersCheckBox"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:text="Заменить буквы на цифры">
+            </CheckBox>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/gradient_line_reverse" />
+
+            <CheckBox
+                android:id="@+id/translitCheckBox"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:text="Сгенерировать транслитом">
+            </CheckBox>
+
         </RadioGroup>
-
-        <CheckBox
-            android:id="@+id/numbersCheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Заменить буквы на цифры" >
-        </CheckBox>
-
-        <CheckBox
-            android:id="@+id/translitCheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Сгенерировать транслитом" >
-        </CheckBox>
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"/>
+        android:background="@drawable/gradient_line"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -112,13 +157,24 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="10dp">
+        </Space>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:fontFamily="sans-serif"
             android:text="Сегодня ты сбежишь из Таркова?">
         </TextView>
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/gradient_line"/>
 
 </LinearLayout>

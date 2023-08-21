@@ -5,6 +5,6 @@
     <color name="orange">#EF6940</color>
     <color name="orangeDark">#BF5534</color>
     <color name="startColor">#EF6940</color>
-    <color name="centerColor">#FFFFFFFF</color>
+    <color name="centerColor">#FF000000</color>
     <color name="endColor">#EF6940</color>
 </resources>

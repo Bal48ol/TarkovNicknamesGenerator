@@ -64,14 +64,14 @@ public class MainActivity extends AppCompatActivity {
                         "Camp", "Distance", "Map", "Key", "Guide", "Strategie", "Tips", "Gameplay",
                         "Raid", "Loot", "Ammo", "Mosinka",
                         "Armor", "Meds", "AKM", "M4A1", "SA58", "ASVAL", "Scope",
-                        "RPK", "SKS", "Roubles", "Rubles", "Bear", "USEC",
+                        "RPK", "SKS", "Roubles", "Rubles", "BEAR", "USEC",
                         "AK74", "M4", "ASVAL", "SKS45",
                         "Armor", "MedKit", "Split", "IFAK", "CMS", "Gold",
                         "CPU", "PSU", "SSD", "HDD", "RAM", "5x45", "7x62", "5x56", "9x19",
                         "Raids", "Loot", "Custom",
                         "Reserve", "Factory", "Ammo", "Armor", "Meds", "Extract", "AKM",
                         "M4A1", "SA58", "ASVAL", "Sniper", "Scope", "Raider", "Shturm", "RPK",
-                        "SKS", "Roubles", "Rubles", "Bear", "USEC", "Raid", "Gear",
+                        "SKS", "Roubles", "Rubles", "Raid", "Gear",
                         "Tark", "Exfil", "PMC", "SVD", "AK74", "M1A",  "SKS", "RSASS", "M700", "MP5",
                         "AKS", "AKMS", "Saiga", "VSS", "VAL", "M9", "MPX", "PP-19", "P90", "Glock", "Mak", "TT",
                         "Grach", "APS", "APB", "MP443",
@@ -107,10 +107,11 @@ public class MainActivity extends AppCompatActivity {
                         "Cheh", "Box200", "Box300", "Boxer", "Zinc", "Souls", "Fubar", "Salewa",
                         "Chiter", "AxeMan", "Mosiner", "AKSU", "MR-133", "NATO", "NatoAK",
                         "Lemon", "Trofy", "FullGear", "Recumbent", "PreFire", "Tap", "OneShot", "Vendor",
-                        "Nikita", "Geneburn", "Trainfender", "Bread", "DogHome");
+                        "Nikita", "Geneburn", "Trainfender", "Bread", "DogHome", "Gozan", "Ulach", "Goshan");
 
                 ArrayList<String> uniqueKeywordsEN = keywordsEN.stream()
                         .distinct()
+                        .map(MainActivity::removeLastVowel)
                         .collect(Collectors.toCollection(ArrayList::new));
 
                 ArrayList<String> keywordsRU = new ArrayList<>();
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                         "Tamozhnya", "Zavod", "Laboratoriya", "Rezerv", "Razvyazka", "Bereg", "Les", "UlicyTarkova",
                          "Patrony", "Bronya", "Medikamenty", "AKM", "M4A1",
                         "SA58", "ASVAL", "Snaiper", "Pricel", "Reider", "SHturm", "RPK", "SKS", "Rubli", "Rubli",
-                                "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Bronya", "MedNabor",
+                        "BEAR", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Bronya", "MedNabor",
                         "IFAK", "CMS", "Zoloto", "CPU", "SSD", "OZU", "M995", "BS",
                         "BT", "BP", "T45M", "VPO", "AKSU", "AKM", "CHVK", "Dobycha",
                                 "Pricel", "Reider", "Killa", "SKS", "Rubli",
@@ -155,10 +156,11 @@ public class MainActivity extends AppCompatActivity {
                         "Medicina", "Nabor", "Razdelenie", "IFAK", "CMS", "Zoloto", "VPO", "RPK", "Gruz200",
                         "Gruz300", "Bokser", "Cheh", "Duh", "Fubar", "Salewa", "Chiter", "Toporist", "Mosinist",
                         "Ksyuha", "Murka", "Dikij", "CHVK", "NATO", "NatoAK", "Limonka", "Trofei", "Fulka", "Polezhaikin",
-                        "Prifaer", "Tap", "Vanshot", "Torgovec", "Nikita", "Baton", "Budka", "Geneburn");
+                        "Prifaer", "Tap", "VanShot", "Torgovec", "Nikita", "Baton", "Budka", "Geneburn", "Gozan", "Ulach", "Goshan");
 
                 ArrayList<String> uniqueKeywordsRU = keywordsRU.stream()
                         .distinct()
+                        .map(MainActivity::removeLastVowel)
                         .collect(Collectors.toCollection(ArrayList::new));
 
 
@@ -273,12 +275,12 @@ public class MainActivity extends AppCompatActivity {
                 .collect(Collectors.toCollection(ArrayList::new));
 
         ArrayList<String> secondWordRU = new ArrayList<>();
-        Collections.addAll(secondWordRU, "Pro", "Igrok", "Ten", "Prizrak", "Gadyuka", "Haos",
+        Collections.addAll(secondWordRU, "Proshka", "Igrok", "Ten", "Prizrak", "Gadyuka", "Haos",
                 "Strazh", "Razorenie", "Snajper", "Nayomnik", "Bandit", "VneZakona", "Izgoi", "Sabotazh",
                 "Prizrak", "Koldun", "Zagadka", "Avangard", "Vrag", "Blic", "Straiker", "Yarost", "Yad", "Opasnost",
-                "Ohotnik", "Skorpion", "Fantom", "Prizrak", "Titan", "Dzhagernaut", "Komandos", "Maverik", "Nachalnik",
-                "Otchayannyi", "Metkij", "Taktik", "Ohotnik", "Razvedchik", "Ronin", "Palach", "Annigilyator", "Karatel",
-                "Bezzhalostnyi", "Mest", "Buistvo", "Haos", "Razoritel", "Dikar", "Dominator", "Mest", "Klinok",
+                "Ohotnik", "Skorpion", "Fantom", "Prizrak", "Titan", "Dzhager", "Komandos", "Maverik", "Nachalnik",
+                "Otchayan", "Metkij", "Taktik", "Ohotnik", "Razvedchik", "Ronin", "Palach", "Karatel",
+                "Bezzhalosti", "Mest", "Buistvo", "Haos", "Razoritel", "Dikar", "Dominator", "Mest", "Klinok",
                 "Pistoleter", "Izmelchitel", "Shtorm", "Grubiyan", "Berserk", "Razrushitel",
                 "Grenader", "Sabotazhnik", "Sablya", "Klich", "Grom", "Shtorm", "Ciklon",
                 "Burya", "Lavina", "Metel", "Inferno", "Pozhar", "Feniks", "Zmei", "Kobra",
@@ -292,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
                 "Krestonosec", "Berserk", "Viking", "Izgoi", "Vor", "Bandit", "Razvedchik", "Pioner", "Vyzhivshij",
                 "Kapitan", "Komandir", "Lider", "Strateg", "Taktik", "Inzhener", "Pilot", "Navigator", "Voditel", "Vsadnik",
                 "Dzhaggernaut", "Tank", "Grubiyan",
-                "Vyshibala", "Drobilshik", "Ubijca", "Ispolnitel", "Annigilyator", "Zavoevatel", "Artefakt", "Mutant",
+                "Vyshibala", "Drobilshik", "Ubijca", "Ispolnitel", "Zavoevatel", "Artefakt", "Mutant",
                 "Stalker", "Anomaliya", "Pripyat", "Psevdopes", "Monolit", "Grom", "Radiaciya", "ChistoeNebo",
                 "Igla", "Chernobyl", "Svoboda", "Dolg", "Operaciya", "Arsenal", "Shtorm", "Radar", "Medved",
                 "Pripyat", "Zabroshka", "Krovosos", "Lazar", "Voin", "Bandit",
@@ -303,6 +305,20 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> uniqueSecondWordRU = secondWordRU.stream()
                 .distinct()
                 .collect(Collectors.toCollection(ArrayList::new));
+
+//        String[] usecArray = {
+//                "USEC", "Англоязычные", "Международная", "Контрактники", "Модернизированное",
+//                "Высокотехнологичное", "Профессиональные", "Американская", "Специализация",
+//                "Тактическая", "Командный", "Специализация", "Высокий",
+//                "Связь", "Профессиональные", "Акцент"
+//        };
+//
+//        String[] bearArray = {
+//                "BEAR", "Российская", "Русскоязычные", "Военная", "Солдаты", "Стандартное",
+//                "Тяжелое", "Профессиональные", "Российская", "Специализация",
+//                "Боевая", "Радио", "Специализация", "Высокий",
+//                "Изоляция", "Опыт", "Акцент"
+//        };
 
         StringBuilder replacedKeyword = new StringBuilder();
 
@@ -346,9 +362,9 @@ public class MainActivity extends AppCompatActivity {
                     prefix + replacedKeyword + secWord,
                     prefix + replacedKeyword + "_" + secWord,
                     prefix + replacedKeyword + "-" + secWord,
-                    replacedKeyword + secWord + suffix,
-                    replacedKeyword + "_" + secWord + suffix,
-                    replacedKeyword + "-" + secWord + suffix,
+                    replacedKeyword + suffix + secWord,
+                    replacedKeyword  + suffix + "_" + secWord,
+                    replacedKeyword  + suffix + "-" + secWord
             };
 
             randomNickname = presets[random.nextInt(presets.length)];
@@ -359,7 +375,7 @@ public class MainActivity extends AppCompatActivity {
             while (selectedPreset.length() > 15 && attempts < maxAttempts) {
                 if (selectedPreset.contains(secWord)) {
                     if ((suffix.length() + prefix.length()) < secWord.length()) {
-                        if (selectedPreset.contains("-") || selectedPreset.contains("_")) {
+                        if (selectedPreset.contains("-" + secWord) || selectedPreset.contains("_" + secWord)) {
                             selectedPreset = selectedPreset.replaceFirst("-" + secWord, "");
                             selectedPreset = selectedPreset.replaceFirst("_" + secWord, "");
                             if (!selectedPreset.contains(suffix)) {
@@ -367,20 +383,34 @@ public class MainActivity extends AppCompatActivity {
                             } else if (!selectedPreset.contains(prefix)) {
                                 selectedPreset = prefix + selectedPreset;
                             }
-                        } else {
-                            selectedPreset = selectedPreset.replaceFirst(secWord, "");
+                        }
+                        else {
                             selectedPreset = selectedPreset.replaceFirst(secWord, "");
                             if (!selectedPreset.contains(suffix)) {
                                 selectedPreset += suffix;
                             } else if (!selectedPreset.contains(prefix)) {
                                 selectedPreset = prefix + selectedPreset;
                             }
+
+                            if(selectedPreset.length() > 15){
+                                if(suffix.length() > prefix.length()){
+                                    selectedPreset = selectedPreset.replaceFirst(suffix, "");
+                                }
+                                else selectedPreset = selectedPreset.replaceFirst(prefix, "");
+                                if(selectedPreset.length() > 15){
+                                    if (selectedPreset.contains(suffix)) {
+                                        selectedPreset = selectedPreset.replaceFirst(suffix, "");
+                                    }
+                                    else selectedPreset = selectedPreset.replaceFirst(prefix, "");
+                                }
+                            }
                         }
-                    } else if ((suffix.length() + prefix.length()) >= secWord.length()) {
+                    }
+                    else if ((suffix.length() + prefix.length()) >= secWord.length()) {
                         selectedPreset = selectedPreset.replaceFirst(suffix, "");
                         selectedPreset = selectedPreset.replaceFirst(prefix, "");
                         if(selectedPreset.length() > 15){
-                            if (selectedPreset.contains("-") || selectedPreset.contains("_")) {
+                            if (selectedPreset.contains("-" + secWord) || selectedPreset.contains("_" + secWord)) {
                                 selectedPreset = selectedPreset.replaceFirst("-" + secWord, "");
                                 selectedPreset = selectedPreset.replaceFirst("_" + secWord, "");
                             }
@@ -435,7 +465,7 @@ public class MainActivity extends AppCompatActivity {
             }
             if (selectedPreset.length() > 15 || selectedPreset.length() < 3) {
                 Toast.makeText(MainActivity.this, "Генератор задумался. Попробуйте ещё раз", Toast.LENGTH_SHORT).show();
-                //randomNickname = "-";
+                selectedPreset = "Меня зовут...";
             }
         }
 
@@ -465,7 +495,7 @@ public class MainActivity extends AppCompatActivity {
             while (selectedPreset.length() > 15 && attempts < maxAttempts) {
                 if (selectedPreset.contains(secWord)) {
                     if ((suffix.length() + prefix.length()) < secWord.length()) {
-                        if (selectedPreset.contains("-") || selectedPreset.contains("_")) {
+                        if (selectedPreset.contains("-" + secWord) || selectedPreset.contains("_" + secWord)) {
                             selectedPreset = selectedPreset.replaceFirst("-" + secWord, "");
                             selectedPreset = selectedPreset.replaceFirst("_" + secWord, "");
                             if (!selectedPreset.contains(suffix)) {
@@ -475,11 +505,23 @@ public class MainActivity extends AppCompatActivity {
                             }
                         } else {
                             selectedPreset = selectedPreset.replaceFirst(secWord, "");
-                            selectedPreset = selectedPreset.replaceFirst(secWord, "");
                             if (!selectedPreset.contains(suffix)) {
                                 selectedPreset += suffix;
                             } else if (!selectedPreset.contains(prefix)) {
                                 selectedPreset = prefix + selectedPreset;
+                            }
+
+                            if(selectedPreset.length() > 15){
+                                if(suffix.length() > prefix.length()){
+                                    selectedPreset = selectedPreset.replaceFirst(suffix, "");
+                                }
+                                else selectedPreset = selectedPreset.replaceFirst(prefix, "");
+                                if(selectedPreset.length() > 15){
+                                    if (selectedPreset.contains(suffix)) {
+                                        selectedPreset = selectedPreset.replaceFirst(suffix, "");
+                                    }
+                                    else selectedPreset = selectedPreset.replaceFirst(prefix, "");
+                                }
                             }
                         }
                     }
@@ -487,7 +529,7 @@ public class MainActivity extends AppCompatActivity {
                         selectedPreset = selectedPreset.replaceFirst(suffix, "");
                         selectedPreset = selectedPreset.replaceFirst(prefix, "");
                         if(selectedPreset.length() > 15){
-                            if (selectedPreset.contains("-") || selectedPreset.contains("_")) {
+                            if (selectedPreset.contains("-" + secWord) || selectedPreset.contains("_" + secWord)) {
                                 selectedPreset = selectedPreset.replaceFirst("-" + secWord, "");
                                 selectedPreset = selectedPreset.replaceFirst("_" + secWord, "");
                             }
@@ -541,10 +583,23 @@ public class MainActivity extends AppCompatActivity {
             }
             if (selectedPreset.length() > 15 || selectedPreset.length() < 3) {
                 Toast.makeText(MainActivity.this, "Генератор задумался. Попробуйте ещё раз", Toast.LENGTH_SHORT).show();
-                //randomNickname = "-";
+                selectedPreset = "Меня зовут...";
             }
         }
 
         return selectedPreset;
+    }
+
+    private static String removeLastVowel(String word) {
+        String[] glases = {"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"};
+
+        char lastChar = word.charAt(word.length() - 1);
+
+        for (String vowel : glases) {
+            if (Character.toString(lastChar).equals(vowel)) {
+                return word.substring(0, word.length() - 1);
+            }
+        }
+        return word;
     }
 }

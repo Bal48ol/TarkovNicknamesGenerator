@@ -1,8 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.TarkovNicknamesGenerator" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="colorPrimaryVariant">#2492F7</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#2492F7</item>
+        <item name="colorSecondaryVariant">#2492F7</item>
+        <item name="colorOnSecondary">#2491F6</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/orange</item>
+        <item name="android:navigationBarColor">@color/orange</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <item name="android:startColor">@color/startColor</item>
+        <item name="android:centerColor">@color/centerColor</item>
+        <item name="android:endColor">@color/endColor</item>
     </style>
 
     <style name="Theme.TarkovNicknamesGenerator" parent="Base.Theme.TarkovNicknamesGenerator" />
