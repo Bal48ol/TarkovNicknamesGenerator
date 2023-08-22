@@ -64,7 +64,7 @@
 
         <Space
             android:layout_width="20dp"
-            android:layout_height="10dp">
+            android:layout_height="5dp">
         </Space>
 
         <LinearLayout
@@ -208,7 +208,7 @@
                 android:enabled="false"
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center"
-                android:text="Сбежать невозможно, как и вынести танковый аккум на 1 уровне."
+                android:text="..."
                 android:textColor="#707070"
                 android:textSize="25dp">
             </EditText>
@@ -223,7 +223,7 @@
 
         <Space
             android:layout_width="20dp"
-            android:layout_height="10dp">
+            android:layout_height="5dp">
         </Space>
 
         <Button
@@ -235,67 +235,88 @@
             android:fontFamily="sans-serif">
         </Button>
 
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="10dp">
+        </Space>
+
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView1"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="200dp"
+            android:background="@drawable/gradient_line_reverse"
             android:layout_gravity="center_horizontal"
+            android:padding="5dp"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView2"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="200dp"
+            android:background="@drawable/gradient_line_reverse"
             android:layout_gravity="center_horizontal"
+            android:padding="5dp"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView3"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="200dp"
+            android:background="@drawable/gradient_line_reverse"
             android:layout_gravity="center_horizontal"
+            android:padding="5dp"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView4"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="200dp"
+            android:background="@drawable/gradient_line_reverse"
             android:layout_gravity="center_horizontal"
+            android:padding="5dp"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView5"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="200dp"
+            android:background="@drawable/gradient_line_reverse"
             android:layout_gravity="center_horizontal"
+            android:padding="5dp"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView6"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="200dp"
+            android:background="@drawable/gradient_line_reverse"
             android:layout_gravity="center_horizontal"
+            android:padding="5dp"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView7"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="200dp"
+            android:background="@drawable/gradient_line_reverse"
             android:layout_gravity="center_horizontal"
+            android:padding="5dp"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView8"
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="200dp"
+            android:background="@drawable/gradient_line_reverse"
             android:layout_gravity="center_horizontal"
+            android:padding="5dp"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 

@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText escapeEditText;
     private Button escapeButton;
     private LinearLayout mainLinearLayout;
-    private Button formButton;
+    private Button skipButton;
     private Button rustoreButton;
 
     @Override
@@ -815,13 +815,11 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
 
-        formButton = dialogView.findViewById(R.id.formButton);
-        formButton.setOnClickListener(new View.OnClickListener() {
+        skipButton = dialogView.findViewById(R.id.skipButton);
+        skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "https://forms.yandex.ru/u/64e4b87790fa7b1448967b89";
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
+                dialog.dismiss();
             }
         });
 

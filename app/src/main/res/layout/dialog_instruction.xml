@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/instructionTextView"
+        android:id="@+id/recsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -17,16 +17,6 @@
         android:paddingTop="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="@string/instruction">
-    </TextView>
-
-    <TextView
-        android:id="@+id/recsTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="sans-serif"
-        android:gravity="center_horizontal"
         android:text="@string/recommends">
     </TextView>
 
@@ -41,12 +31,12 @@
         android:gravity="center_horizontal">
 
         <Button
-            android:id="@+id/formButton"
+            android:id="@+id/rustoreButton"
             android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#656565"
-            android:text="Форма" />
+            android:backgroundTint="#2196F3"
+            android:text="RuStore" />
 
         <Space
             android:layout_width="20dp"
@@ -54,12 +44,12 @@
         </Space>
 
         <Button
-            android:id="@+id/rustoreButton"
+            android:id="@+id/skipButton"
             android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#2196F3"
-            android:text="RuStore" />
+            android:backgroundTint="@color/orangeDark"
+            android:text="Продолжить" />
 
     </LinearLayout>
 
