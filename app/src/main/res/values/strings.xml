@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">TarkovNicknamesGenerator</string>
+    <string name="instruction">
+        По правилам Battlestate Games, никнейм может содержать от 3 до 15 символов.
+        \nМогут быть использованы латинские буквы, цифры, символ нижнего подчёркивания и дефис.
+        \n\nК сожалению, ограничений не избежать :("
+    </string>
+    <string name="recommends">
+        Пожалуйста, перейдите по ссылке и заполните форму с вашими рекомендациями к приложению.
+        \n\nТакже буду признателен, если вы оцените приложение в RuStore.
+    </string>
 </resources>

@@ -1,23 +1,31 @@
 package com.example.tarkovnicknamesgenerator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -47,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText escapeEditText;
     private Button escapeButton;
     private LinearLayout mainLinearLayout;
+    private Button formButton;
+    private Button rustoreButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
         animationDrawable.setEnterFadeDuration(2500);
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
+
+        showInstructionDialog();
+
 
         anyRadioButton.setChecked(true);
 
@@ -792,5 +805,36 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return word;
+    }
+
+    private void showInstructionDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_instruction, null);
+        builder.setView(dialogView);
+
+        AlertDialog dialog = builder.create();
+
+        formButton = dialogView.findViewById(R.id.formButton);
+        formButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "https://forms.yandex.ru/u/64e4b87790fa7b1448967b89";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        rustoreButton = dialogView.findViewById(R.id.rustoreButton);
+        rustoreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+
+        dialog.show();
     }
 }

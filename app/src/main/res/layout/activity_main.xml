@@ -14,7 +14,7 @@
     <LinearLayout
         android:id="@+id/firstLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="65dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -49,6 +49,7 @@
                 android:enabled="false"
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center"
+                android:textColor="#707070"
                 android:text="Меня зовут..."
                 android:textSize="40dp">
             </EditText>
@@ -63,7 +64,7 @@
 
         <Space
             android:layout_width="20dp"
-            android:layout_height="20dp">
+            android:layout_height="10dp">
         </Space>
 
         <LinearLayout
@@ -111,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
                 android:layout_gravity="center"
+                android:textColor="@color/white"
                 android:text="Ник из 3 символов">
             </RadioButton>
 
@@ -125,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"
+                android:textColor="@color/white"
                 android:text="Ник от 3 до 15 символов">
             </RadioButton>
 
@@ -139,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"
+                android:textColor="@color/white"
                 android:text="Заменить буквы на цифры">
             </CheckBox>
 
@@ -153,6 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif"
+                android:textColor="@color/white"
                 android:text="Сгенерировать транслитом">
             </CheckBox>
 
@@ -196,19 +201,20 @@
 
             <EditText
                 android:id="@+id/escapeEditText"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@null"
                 android:enabled="false"
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center"
-                android:text="..."
-                android:textSize="30dp">
+                android:text="Сбежать невозможно, как и вынести танковый аккум на 1 уровне."
+                android:textColor="#707070"
+                android:textSize="25dp">
             </EditText>
 
             <View
-                android:layout_width="350dp"
+                android:layout_width="340dp"
                 android:layout_gravity="center"
                 android:layout_height="1dp"
                 android:background="@drawable/gradient_line_reverse"/>
@@ -217,7 +223,7 @@
 
         <Space
             android:layout_width="20dp"
-            android:layout_height="20dp">
+            android:layout_height="10dp">
         </Space>
 
         <Button
@@ -231,64 +237,64 @@
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView1"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView2"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView3"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView4"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView5"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView6"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView7"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/gifImageView8"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="fitCenter"
             android:visibility="gone" />
