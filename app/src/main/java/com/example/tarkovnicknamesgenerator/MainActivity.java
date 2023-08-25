@@ -34,6 +34,14 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 import com.bumptech.glide.Glide;
+import com.yandex.mobile.ads.banner.AdSize;
+import com.yandex.mobile.ads.banner.BannerAdEventListener;
+import com.yandex.mobile.ads.banner.BannerAdView;
+import com.yandex.mobile.ads.common.AdRequest;
+import com.yandex.mobile.ads.common.AdRequestError;
+import com.yandex.mobile.ads.common.InitializationListener;
+import com.yandex.mobile.ads.common.MobileAds;
+
 import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout mainLinearLayout;
     private Button skipButton;
     private Button rustoreButton;
+    private BannerAdView mBannerAdView;
+    private BannerAdView mBannerAdView2;
+    private View viewView;
+    private View viewView2;
+    private static final String YANDEX_MOBILE_ADS_TAG = "YandexMobileAds";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         gifImageView7 = findViewById(R.id.gifImageView7);
         gifImageView8 = findViewById(R.id.gifImageView8);
         mainLinearLayout = findViewById(R.id.mainLinearLayout);
+        viewView = findViewById(R.id.viewView);
+        viewView2 = findViewById(R.id.viewView2);
 
         Glide.with(this)
                 .asGif()
@@ -123,15 +138,50 @@ public class MainActivity extends AppCompatActivity {
 
         showInstructionDialog();
 
-
         anyRadioButton.setChecked(true);
+
+        MobileAds.initialize(this, new InitializationListener() {
+            @Override
+            public void onInitializationCompleted() {
+                Log.d(YANDEX_MOBILE_ADS_TAG, "SDK initialized");
+            }
+        });
+
+        // Создание экземпляра mAdView.
+        mBannerAdView = (BannerAdView) findViewById(R.id.banner_ad_view);
+        String AdUnitId = "R-M-2699211-1";
+        mBannerAdView.setAdUnitId(AdUnitId);
+        mBannerAdView.setAdSize(AdSize.BANNER_320x50);
+
+        // Создание объекта таргетирования рекламы.
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        // Загрузка объявления.
+        mBannerAdView.loadAd(adRequest);
+
+        // Создание экземпляра mAdView. demo-banner-yandex
+        mBannerAdView2 = (BannerAdView) findViewById(R.id.banner_ad_view2);
+        String AdUnitId2 = "R-M-2699211-2"; //R-M-2699211-2
+        mBannerAdView2.setAdUnitId(AdUnitId2);
+        mBannerAdView2.setAdSize(AdSize.BANNER_320x50);
+
+        // Создание объекта таргетирования рекламы.
+        AdRequest adRequest2 = new AdRequest.Builder().build();
+
+        // Загрузка объявления.
+        mBannerAdView2.loadAd(adRequest2);
+
+        String nickname = nickEditText.getText().toString();
+        if (nickname.isEmpty()){
+            nickEditText.setText("Меня зовут...");
+        }
 
         nickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ArrayList<String> keywordsEN = new ArrayList<>();
                 Collections.addAll(keywordsEN, "Escape", "Tarkov", "Survival", "Shooter", "Military", "PMC",
-                        "Raid", "Loot", "Scav", "Battlestate", "Gear", "Weapon", "Armor", "Ammo",
+                        "Raid", "Loot", "Scav", "BattleState", "Gear", "Weapon", "Armor", "Ammo",
                         "Quest", "Custom", "Factory", "Meta",
                         "Lab", "Hideout", "Trader", "Market", "Secure", "Container", "Stash", "Health",
                         "Stamina", "Skill", "Lvl", "Level", "PVP", "PVE", "Squad",
@@ -145,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                         "Raid", "Loot", "Ammo", "Mosinka",
                         "Armor", "Meds", "AKM", "M4A1", "SA58", "ASVAL", "Scope",
                         "RPK", "SKS", "Roubles", "Rubles", "BEAR", "USEC",
-                        "AK74", "M4", "ASVAL", "SKS45",
+                        "AK74", "M4", "ASVAL", "SKS45", "GPhone",
                         "Armor", "MedKit", "Split", "IFAK", "CMS", "Gold",
                         "CPU", "PSU", "SSD", "HDD", "RAM", "5x45", "7x62", "5x56", "9x19",
                         "Raids", "Loot", "Custom",
@@ -167,25 +217,25 @@ public class MainActivity extends AppCompatActivity {
                         "Juggernaut", "Tank", "Bouncer", "Crusher", "Slayer", "Executor",
                         "Annihilator", "Conqueror", "Scavenger", "Raid", "Loot", "Wood", "Ammo",
                         "Armor", "Meds", "Mosin", "AKM", "M4A1", "SA58", "ASVAL", "Scope", "Killa",
-                        "Vepr", "SKS", "Bear", "USEC",
+                        "Vepr", "SKS", "Bear", "USEC", "Grizzly",
                         "AK74", "M4", "ASVAL", "SKS45", "Ammo",
                         "Armor", "Med", "Kit", "Split", "IFAK", "Morphi", "Gold",
-                        "CPU", "SSD", "HDD", "RAM", "M995", "BS", "BT", "BP",
+                        "CPU", "SSD", "HDD", "GPU", "M995", "BS", "BT", "BP",
                         "T45M", "VPO", "AKSU", "AKM", "PMC", "Raids", "Loot",
                         "Reserve", "Factory", "Ammo", "Armor", "Meds", "Extract", "AKM",
                         "M4A1", "SA58", "ASVAL", "Sniper", "Scope", "Raider", "Killa",
                         "SKS", "Roubles", "Rubles", "Bear", "USEC", "Raid", "Gear",
                         "PMC", "SVD", "AK74", "M1A", "RSASS", "MP7",
                         "AKS", "Saiga", "VSS", "VAL", "M9", "MPX", "PP-19", "P-90", "Glock", "Mak", "TT",
-                        "TT", "Grach", "APS", "APB", "MP443",
+                        "TT", "Grach", "APS", "APB", "MP443", "LedX", "RGO", "RGN", "VOG",
                         "PMCex", "Raid", "Loot", "Labs", "Woods", "Ammo",
                         "Armor", "Meds", "AKM", "M4A1", "SA58", "ASVAL", "Scope", "Tagilla",
-                        "SKS", "Bear", "USEC", "AK74", "M4",
-                        "ASVAL", "SKS45", "TOZ-106", "Streets",
+                        "SKS", "Bear", "USEC", "AK74", "M4", "UN", "Tourist",
+                        "ASVAL", "SKS45", "TOZ-106", "Streets", "Oli", "Idea",
                         "Armor", "Med", "Kit", "Split", "IFAK", "CMS", "Gold", "VPO", "RPK", "Toxic",
                         "Prapor", "Therapist", "Fence", "Skier", "Peacekeeper", "Mechanic", "Ragman", "Jaeger",
                         "Cheh", "Box200", "Box300", "Boxer", "Zinc", "Souls", "Fubar", "Salewa",
-                        "Chiter", "AxeMan", "Mosiner", "AKSU", "MR-133", "NATO", "NatoAK", "Rigij",
+                        "Chiter", "AxeMan", "Mosiner", "AKSU", "MR-133", "NATO", "NatoAK", "Riji",
                         "Lemon", "Trofy", "FullGear", "Recumbent", "PreFire", "Tap", "OneShot", "Vendor",
                         "Nikita", "Geneburn", "Trainfender", "Bread", "DogHome", "Gozan", "Ulach", "Goshan");
 
@@ -195,47 +245,47 @@ public class MainActivity extends AppCompatActivity {
                         .collect(Collectors.toCollection(ArrayList::new));
 
                 ArrayList<String> keywordsRU = new ArrayList<>();
-                Collections.addAll(keywordsRU, "Pobeg", "Tarkov", "Vyzhivanie", "Shuter", "Voennyi",
-                        "CHVK", "Reid", "Dobycha", "Dikiy", "Battlestate", "Snaryazhenie", "Oruzhie", "Bronya",
-                        "Patrony", "Zadanie", "Kastom", "Fabrika", "Laboratoriya", "Ubezhishche", "Treider",
-                        "Rynok", "Bezopasnyi", "Konteiner", "Yashchik", "Zdorove", "Vynoslivost", "Navyk",
-                        "Uroven", "PVP", "PVE", "Komanda", "Komandnaya", "Takticheskij", "Realizm", "Toxic",
+                Collections.addAll(keywordsRU, "Pobeg", "Tarkov", "Vyzhivach", "Shuter", "Voennyi",
+                        "CHVK", "Reid", "Dobycha", "Dikiy", "BattleState", "Snaryga", "Oruzhie", "Bronya",
+                        "Patrony", "Zadanie", "Kastom", "Fabrika", "Laba", "Ubezhka", "Treider",
+                        "Rynok", "Bezopasnyi", "Konteiner", "Yashchik", "Zdorove", "Stamina", "Navyk",
+                        "Uroven", "PVP", "PVE", "Tima", "Taktikulni", "Realizm", "Toxic", "Turist",
                         "Hardkor", "Ukrytie", "Skrytnost", "Granata", "Pripasy", "Meta",
-                        "PervayaPomoshch", "Bint", "Obezbol", "Ryukzak", "SHlem", "NochnoeVidenie",
-                        "Glushitel", "Optika", "Barter", "Reputaciya", "Bitkoin", "Rubl",
-                        "Dollar", "Evro", "Modding", "Pricel", "Priklad", "Plastina",
+                        "Pomoshch", "Bint", "Obezbol", "Ryukzak", "SHlem", "Nochnik", "RGO", "RGN", "VOG",
+                        "Glushak", "Optika", "Barter", "Repa", "Bitkoin", "Rubl", "Grizzly",
+                        "Dollar", "Evro", "Modding", "Pricel", "Priklad", "Plastina", "GPhone",
                         "Shlem", "Tochka", "Zona", "Vremya", "Taktika", "Kemping", "Kemper", "Lager", "Distanciya",
                         "Karta", "Klyuch", "Rukovodstvo", "Strategiya", "Sovet", "GamePlay", "Reid", "Dobycha",
                         "Patron", "Mosinka", "Bronya", "Medikamenty", "AKM", "M4A1", "SA58", "ASVAL", "Pricel",
-                        "RPK", "SKS", "Rubli", "Rubli", "Medkomplekt", "Razdelenie", "IFAK", "CMS", "Zoloto", "CPU",
-                        "BP", "SSD", "HDD", "OZU", "5x45", "7x62", "5x56", "9x19", "Dobycha",
-                        "Tamozhnya", "Zavod", "Laboratoriya", "Rezerv", "Razvyazka", "Bereg", "Les", "Ulicy",
-                         "Patrony", "Bronya", "Medikamenty", "AKM", "M4A1",
-                        "SA58", "ASVAL", "Snaiper", "Pricel", "Reider", "SHturm", "RPK", "SKS", "Rubli", "Rubli",
+                        "RPK", "SKS", "Rubli", "Rubli", "IFAK", "CMS", "Zoloto", "CPU",
+                        "BP", "SSD", "HDD", "Viduha", "5x45", "7x62", "5x56", "9x19", "Dobycha",
+                        "Tamozhnya", "Zavod", "Rezerv", "Razvyazka", "Bereg", "Les", "Ulicy",
+                         "Patrony", "Bronya", "AKM", "M4A1",
+                        "SA58", "ASVAL", "Snaiper", "Pricel", "Reider", "Shturm", "RPK", "SKS", "Rubli",
                         "BEAR", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Bronya", "MedNabor",
-                        "IFAK", "CMS", "Zoloto", "CPU", "SSD", "OZU", "M995", "BS",
+                        "IFAK", "CMS", "Zoloto", "CPU", "SSD", "OZU", "M995", "BS", "Oli", "Goshan", "Idea",
                         "BT", "BP", "T45M", "VPO", "AKSU", "AKM", "CHVK", "Dobycha",
-                                "Pricel", "Reider", "Killa", "SKS", "Rubli",
-                        "Snaryazhenie", "CHVK", "SVD", "AK74", "M1A", "SKS", "RSASS", "M700",
+                        "Pricel", "Reider", "Killa", "SKS", "Rubli", "Chupik",
+                        "CHVK", "SVD", "AK74", "M1A", "SKS", "RSASS", "M700",
                         "MP5", "AKS", "AKMS", "Saiga", "VSS", "VAL", "M9", "MPX", "PP-19", "P90", "Glock", "Makarov",
                         "TT", "Grach", "APS", "APB", "MP443", "Killa", "Reshala", "Sanitar", "Gluhar", "Shturman",
                         "Kult", "Tagila", "Snaiper", "Boss", "Torgovec", "Naemnik", "Zhulik", "Nomad", "Otshelnik",
-                        "Rukovodstvo", "Prizrak", "Stalker", "Zhnec", "Hishchnik", "Sabotazhnik", "Ohotnik",
-                        "Ispolnitel", "Razrushitel", "Vandal", "Maroder", "Bandit",
-                        "VneZakona", "Reider", "Naemnik", "Strelok", "Lezvie", "Krestonosec", "Berserk", "Viking",
-                        "Razboinik", "Vor", "Bandit", "Skaut", "Pervoprohodec", "Vyzhivshij", "Kapitan", "Komandir",
+                        "Prizrak", "Stalker", "Zhnec", "Hishchnik", "Sabotazhnik", "Ohotnik",
+                        "Ispolnitel", "Vandal", "Maroder", "Bandit", "Leduha",
+                        "VneZakona", "Reider", "Naemnik", "Strelok", "Lezvie", "Berserk", "Viking",
+                        "Razboinik", "Vor", "Bandit", "Skaut", "Kapitan", "Komandir",
                         "Lider", "Strateg", "Taktik", "Inzhener", "Uchenyi", "Pilot", "Navigator", "Voditel",
                         "Prapor", "Terapevt", "Skupshchik", "Lyzhnik", "Mirotvorec", "Mekhanik", "Baraholshchik", "Eger",
                         "Vsadnik", "Tank", "Vyshibala", "Drobilka", "Ubijca", "Ispolnitel", "Annigilyator",
-                        "Pokoritel", "Plut", "Reid", "Dobycha", "Les", "Patrony", "Bronya", "Medikamenty", "Mosin", "AKM", "M4A1",
+                        "Pokoritel", "Plut", "Reid", "Dobycha", "Les", "Patrony", "Bronya", "Mosin", "AKM", "M4A1",
                         "SA58", "ASVAL", "Pricel", "Killa", "Vepr", "SKS", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45",
                         "Patrony", "Bronya", "Medicina", "Nabor", "Razdelenie", "IFAK", "Morfij", "Zoloto", "CPU", "SSD",
-                        "OZU", "M995", "BS", "BT", "BP", "T45M", "VPO", "AKSU", "AKM", "CHVK",
-                        "Dobycha", "Laboratorii", "Les", "Patrony", "Bronya", "Medikamenty", "AKM", "M4A1", "SA58", "ASVAL",
-                        "Tagila", "SKS", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Tozik", "Bronya", "Rigij",
-                        "Medicina", "Nabor", "Razdelenie", "IFAK", "CMS", "Zoloto", "VPO", "RPK", "Gruz200",
-                        "Gruz300", "Bokser", "Cheh", "Duh", "Fubar", "Salewa", "Chiter", "Toporist", "Mosinist",
-                        "Ksyuha", "Murka", "Dikij", "CHVK", "NATO", "NatoAK", "Limonka", "Trofei", "Fulka", "Polezhaikin",
+                        "OZU", "M995", "BS", "BT", "BP", "T45M", "VPO", "AKSU", "AKM", "CHVK", "Truba", "Sapog",
+                        "Dobycha", "Les", "Patrony", "Bronya", "AKM", "M4A1", "SA58", "ASVAL",
+                        "Tagila", "SKS", "Medved", "USEC", "AK74", "M4", "ASVAL", "SKS45", "Tozik", "Bronya", "Riji",
+                        "Medicina", "Nabor", "IFAK", "CMS", "Zoloto", "VPO", "RPK", "Gruz200", "OOH",
+                        "Gruz300", "Bokser", "Cheh", "Duh", "Fubar", "Salewa", "Chiter", "Toporist", "Mosinist", "Berci",
+                        "Ksyuha", "Dashka", "Murka", "Dikij", "CHVK", "NATO", "NatoAK", "Limonka", "Trofei", "Fulka", "Polezhaikin",
                         "Prifaer", "Tap", "VanShot", "Torgovec", "Nikita", "Baton", "Budka", "Geneburn", "Gozan", "Ulach", "Goshan");
 
                 ArrayList<String> uniqueKeywordsRU = keywordsRU.stream()
@@ -270,15 +320,26 @@ public class MainActivity extends AppCompatActivity {
                 Random random = new Random();
 
                 if (anyRadioButton.isChecked() && translitCheckBox.isChecked()) {
+                    viewView.setVisibility(View.VISIBLE);
+                    numbersCheckBox.setVisibility(View.VISIBLE);
+                    viewView2.setVisibility(View.VISIBLE);
+                    translitCheckBox.setVisibility(View.VISIBLE);
                     randomNick = generateRandomNickname(uniqueKeywordsRU, random);
                 } else if (anyRadioButton.isChecked()) {
+                    viewView.setVisibility(View.VISIBLE);
+                    numbersCheckBox.setVisibility(View.VISIBLE);
+                    viewView2.setVisibility(View.VISIBLE);
+                    translitCheckBox.setVisibility(View.VISIBLE);
                     randomNick = generateRandomNickname(uniqueKeywordsEN, random);
                 } else if (threeRadioButton.isChecked()) {
+                    viewView.setVisibility(View.GONE);
+                    viewView2.setVisibility(View.GONE);
                     numbersCheckBox.setChecked(false);
+                    numbersCheckBox.setVisibility(View.GONE);
                     translitCheckBox.setChecked(false);
+                    translitCheckBox.setVisibility(View.GONE);
                     randomNick = keywords3[random.nextInt(keywords3.length)];
                 }
-
                 nickEditText.setText(randomNick);
             }
         });
@@ -412,16 +473,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String nickname = nickEditText.getText().toString();
-                if (!nickname.isEmpty()) {
+                if (nickname.equals("Меня зовут...")) {
+                    Toast.makeText(MainActivity.this, "Сгенерируйте никнейм", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                     ClipData clip = ClipData.newPlainText("nickname", nickname);
                     clipboard.setPrimaryClip(clip);
-                    Toast.makeText(MainActivity.this, "Никнейм скопирован", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "Сгенерируйте никнейм", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Никнейм " + nickname + " скопирован", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
 
     }
 
@@ -444,9 +507,9 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> secondWordEN = new ArrayList<>();
         Collections.addAll(secondWordEN, "Pro", "Player", "Shadow", "Reaper", "Ghost", "Viper", "Havoc", "Sentinel",
-                "Ravage", "Sniper", "Mercenary", "Bandit", "Outlaw", "Rogue", "Saboteur", "Wraith",
+                "Ravage", "Sniper", "Mercenary", "Bandit", "Outlaw", "Rogue", "Saboteur", "Wraith", "Killer",
                 "Warlock", "Enigma", "Vanguard", "Nemesis", "Blitz", "Stryker", "Fury", "Venom", "Hazard",
-                "Hunter", "Scorpion", "Phantom", "Spectre", "Titan", "Juggernaut", "Commando",
+                "Hunter", "Scorpion", "Phantom", "Spectre", "Titan", "Juggernaut", "Commando", "Mainer",
                 "Maverick", "Warlord", "Desperado", "Marksman", "Tactician", "Sentinel", "Sniper", "Tracker",
                 "Recon", "Ronin", "Executioner", "Annihilator", "Punisher", "Merciless", "Vengeance", "Rampage",
                 "Havoc", "Ravager", "Savage", "Dominator", "Vendetta", "Shadowblade", "Gunslinger", "Shredder",
@@ -461,7 +524,7 @@ public class MainActivity extends AppCompatActivity {
                 "Enforcer", "Nomad", "Prophet", "Outlaw", "Brawler", "Savage",
                 "Sneak", "Sniper", "Sharpshooter", "Gunslinger", "Marksman", "Blade",
                 "Knight", "Crusader", "Berserker", "Viking", "Rogue", "Thief", "Bandit", "Scout",
-                "Pioneer", "Survivor", "Captain", "Commander", "Leader",
+                "Pioneer", "Survivor", "Captain", "Commander", "Leader", "Owner",
                 "Strategist", "Tactician", "Engineer", "Scientist", "Inventor",
                 "Designer", "Creator", "Builder", "Pilot", "Navigator", "Driver", "Rider",
                 "Juggernaut", "Tank", "Bruiser", "Bouncer", "Crusher", "Slayer", "Executor", "Annihilator", "Conqueror",
@@ -484,8 +547,8 @@ public class MainActivity extends AppCompatActivity {
                 "Ohotnik", "Skorpion", "Fantom", "Prizrak", "Titan", "Dzhager", "Komandos", "Maverik", "Nachalnik",
                 "Otchayan", "Metkij", "Taktik", "Ohotnik", "Razvedchik", "Ronin", "Palach", "Karatel",
                 "Bezzhalosti", "Mest", "Buistvo", "Haos", "Razoritel", "Dikar", "Dominator", "Mest", "Klinok",
-                "Pistoleter", "Izmelchitel", "Shtorm", "Grubiyan", "Berserk", "Razrushitel",
-                "Grenader", "Sabotazhnik", "Sablya", "Klich", "Grom", "Shtorm", "Ciklon",
+                "Pistoleter", "Izmelchitel", "Shtorm", "Grubiyan", "Berserk", "Razrushitel", "Killer",
+                "Grenader", "Sabotazhnik", "Sablya", "Klich", "Grom", "Shtorm", "Ciklon", "Mainer", "Owner",
                 "Burya", "Lavina", "Metel", "Inferno", "Pozhar", "Feniks", "Zmei", "Kobra",
                 "Hishchnik", "Sokol", "Volk", "Stervyatnik", "Medved", "USEK", "Pantera", "Lev", "Tigr", "Nosorog",
                 "Drakon", "Grifon", "Feniks", "Gidra", "Himera", "Leviafan", "Kraken", "Zhnec", "Prizrak", "Fantom",
@@ -827,7 +890,7 @@ public class MainActivity extends AppCompatActivity {
         rustoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "";
+                String url = "https://apps.rustore.ru/app/com.example.tarkovnicknamesgenerator";
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(intent);
             }

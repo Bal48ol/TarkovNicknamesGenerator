@@ -11,12 +11,27 @@
         android:layout_height="1dp"
         android:background="@drawable/gradient_line"/>
 
-    <LinearLayout
-        android:id="@+id/firstLinearLayout"
+    <com.yandex.mobile.ads.banner.BannerAdView
+        android:id="@+id/banner_ad_view2"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_height="50dp"
+        android:layout_gravity="center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/firstLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
         <Space
             android:layout_width="20dp"
@@ -28,6 +43,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:fontFamily="sans-serif"
+            android:textStyle="italic"
             android:text="Генератор ников Таркова">
         </TextView>
 
@@ -50,7 +66,6 @@
                 android:fontFamily="sans-serif-thin"
                 android:gravity="center"
                 android:textColor="#707070"
-                android:text="Меня зовут..."
                 android:textSize="40dp">
             </EditText>
 
@@ -132,6 +147,7 @@
             </RadioButton>
 
             <View
+                android:id="@+id/viewView"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@drawable/gradient_line_reverse" />
@@ -147,6 +163,7 @@
             </CheckBox>
 
             <View
+                android:id="@+id/viewView2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@drawable/gradient_line_reverse" />
@@ -163,23 +180,28 @@
 
         </RadioGroup>
 
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="10dp">
+                </Space>
+
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="2dp"
         android:background="@drawable/gradient_line"/>
 
-    <LinearLayout
-        android:id="@+id/secondLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/secondLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
         <Space
             android:layout_width="20dp"
             android:layout_height="10dp">
+
         </Space>
 
         <TextView
@@ -187,17 +209,18 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:gravity="center"
-            android:text="Сегодня ты сбежишь из Таркова?">
+            android:text="Сегодня ты сбежишь из Таркова?"
+            android:textStyle="italic">
         </TextView>
 
         <LinearLayout
             android:id="@+id/buttonLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="5dp"
-            android:gravity="end">
+            android:gravity="end"
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/escapeEditText"
@@ -210,14 +233,14 @@
                 android:gravity="center"
                 android:text="..."
                 android:textColor="#707070"
-                android:textSize="25dp">
+                android:textSize="30dp">
             </EditText>
 
             <View
                 android:layout_width="340dp"
-                android:layout_gravity="center"
                 android:layout_height="1dp"
-                android:background="@drawable/gradient_line_reverse"/>
+                android:layout_gravity="center"
+                android:background="@drawable/gradient_line_reverse" />
 
         </LinearLayout>
 
@@ -231,25 +254,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Узнать правду"
-            android:fontFamily="sans-serif">
+            android:fontFamily="sans-serif"
+            android:text="Escape">
         </Button>
 
         <LinearLayout
             android:id="@+id/buttonLayout3"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="208dp"
             android:layout_gravity="center"
-            android:padding="10dp"
-            android:gravity="end">
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gifImageView1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_line_reverse"
                 android:layout_gravity="center"
+                android:background="@drawable/gradient_line_reverse"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
@@ -258,8 +281,8 @@
                 android:id="@+id/gifImageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_line_reverse"
                 android:layout_gravity="center"
+                android:background="@drawable/gradient_line_reverse"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
@@ -268,8 +291,8 @@
                 android:id="@+id/gifImageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_line_reverse"
                 android:layout_gravity="center"
+                android:background="@drawable/gradient_line_reverse"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
@@ -278,8 +301,8 @@
                 android:id="@+id/gifImageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_line_reverse"
                 android:layout_gravity="center"
+                android:background="@drawable/gradient_line_reverse"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
@@ -288,8 +311,8 @@
                 android:id="@+id/gifImageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_line_reverse"
                 android:layout_gravity="center"
+                android:background="@drawable/gradient_line_reverse"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
@@ -298,8 +321,8 @@
                 android:id="@+id/gifImageView6"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_line_reverse"
                 android:layout_gravity="center"
+                android:background="@drawable/gradient_line_reverse"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
@@ -308,8 +331,8 @@
                 android:id="@+id/gifImageView7"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_line_reverse"
                 android:layout_gravity="center"
+                android:background="@drawable/gradient_line_reverse"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
@@ -318,15 +341,30 @@
                 android:id="@+id/gifImageView8"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_line_reverse"
                 android:layout_gravity="center"
+                android:background="@drawable/gradient_line_reverse"
                 android:padding="5dp"
                 android:scaleType="fitCenter"
                 android:visibility="gone" />
 
         </LinearLayout>
 
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="5dp">
+        </Space>
+
     </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+    <com.yandex.mobile.ads.banner.BannerAdView
+        android:id="@+id/banner_ad_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center" />
 
     <View
         android:layout_width="match_parent"

@@ -10,8 +10,8 @@ android {
         applicationId = "com.example.tarkovnicknamesgenerator"
         minSdk = 30
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,6 +32,8 @@ android {
 }
 
 dependencies {
+    implementation ("com.yandex.android:mobileads:5.10.0")
+
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.23")
