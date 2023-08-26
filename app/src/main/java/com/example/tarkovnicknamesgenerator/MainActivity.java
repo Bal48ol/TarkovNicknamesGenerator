@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -67,8 +69,9 @@ public class MainActivity extends AppCompatActivity {
     private Button rustoreButton;
     private BannerAdView mBannerAdView;
     private BannerAdView mBannerAdView2;
-    private View viewView;
     private View viewView2;
+    private TextView errorTextView;
+    private TextView gybkTextView;
     private static final String YANDEX_MOBILE_ADS_TAG = "YandexMobileAds";
 
     @Override
@@ -94,8 +97,9 @@ public class MainActivity extends AppCompatActivity {
         gifImageView7 = findViewById(R.id.gifImageView7);
         gifImageView8 = findViewById(R.id.gifImageView8);
         mainLinearLayout = findViewById(R.id.mainLinearLayout);
-        viewView = findViewById(R.id.viewView);
         viewView2 = findViewById(R.id.viewView2);
+        errorTextView = findViewById(R.id.errorTextView);
+        gybkTextView = findViewById(R.id.gybkTextView);
 
         Glide.with(this)
                 .asGif()
@@ -179,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
         nickButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                animateClick(nickButton);
                 ArrayList<String> keywordsEN = new ArrayList<>();
                 Collections.addAll(keywordsEN, "Escape", "Tarkov", "Survival", "Shooter", "Military", "PMC",
                         "Raid", "Loot", "Scav", "BattleState", "Gear", "Weapon", "Armor", "Ammo",
@@ -320,20 +325,25 @@ public class MainActivity extends AppCompatActivity {
                 Random random = new Random();
 
                 if (anyRadioButton.isChecked() && translitCheckBox.isChecked()) {
-                    viewView.setVisibility(View.VISIBLE);
+                    gybkTextView.setVisibility(View.VISIBLE);
+                    errorTextView.setVisibility(View.GONE);
                     numbersCheckBox.setVisibility(View.VISIBLE);
                     viewView2.setVisibility(View.VISIBLE);
                     translitCheckBox.setVisibility(View.VISIBLE);
                     randomNick = generateRandomNickname(uniqueKeywordsRU, random);
-                } else if (anyRadioButton.isChecked()) {
-                    viewView.setVisibility(View.VISIBLE);
+                }
+                else if (anyRadioButton.isChecked()) {
+                    gybkTextView.setVisibility(View.VISIBLE);
+                    errorTextView.setVisibility(View.GONE);
                     numbersCheckBox.setVisibility(View.VISIBLE);
                     viewView2.setVisibility(View.VISIBLE);
                     translitCheckBox.setVisibility(View.VISIBLE);
                     randomNick = generateRandomNickname(uniqueKeywordsEN, random);
-                } else if (threeRadioButton.isChecked()) {
-                    viewView.setVisibility(View.GONE);
+                }
+                else if (threeRadioButton.isChecked()) {
+                    gybkTextView.setVisibility(View.GONE);
                     viewView2.setVisibility(View.GONE);
+                    errorTextView.setVisibility(View.VISIBLE);
                     numbersCheckBox.setChecked(false);
                     numbersCheckBox.setVisibility(View.GONE);
                     translitCheckBox.setChecked(false);
@@ -347,6 +357,7 @@ public class MainActivity extends AppCompatActivity {
         escapeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                animateClick(escapeButton);
                  String[] phrasesIfNotEscape = {
                         "Жди гранаты в свою комнату!",
                         "Ты думаешь, что Тарков отпустит тебя? Забудь!",
@@ -472,6 +483,7 @@ public class MainActivity extends AppCompatActivity {
         copyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                animateClick(copyButton);
                 String nickname = nickEditText.getText().toString();
                 if (nickname.equals("Меня зовут...")) {
                     Toast.makeText(MainActivity.this, "Сгенерируйте никнейм", Toast.LENGTH_SHORT).show();
@@ -897,5 +909,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+    private void animateClick(View view) {
+        Animation animation = new ScaleAnimation(1.0f, 0.9f, 1.0f, 0.9f,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        animation.setDuration(100);
+        animation.setRepeatCount(1);
+        animation.setRepeatMode(Animation.REVERSE);
+        view.startAnimation(animation);
     }
 }

@@ -44,6 +44,7 @@
             android:gravity="center"
             android:fontFamily="sans-serif"
             android:textStyle="italic"
+            android:textSize="17dp"
             android:text="Генератор ников Таркова">
         </TextView>
 
@@ -146,11 +147,17 @@
                 android:text="Ник от 3 до 15 символов">
             </RadioButton>
 
-            <View
-                android:id="@+id/viewView"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@drawable/gradient_line_reverse" />
+            <TextView
+                android:id="@+id/gybkTextView"
+                android:gravity="center"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textColor="#707070"
+                android:textSize="17dp"
+                android:text="Гибкая настройка:">
+
+            </TextView>
 
             <CheckBox
                 android:id="@+id/numbersCheckBox"
@@ -177,6 +184,18 @@
                 android:textColor="@color/white"
                 android:text="Сгенерировать транслитом">
             </CheckBox>
+
+            <TextView
+                android:id="@+id/errorTextView"
+                android:gravity="center"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textColor="#707070"
+                android:fontFamily="sans-serif"
+                android:visibility="gone"
+                android:textSize="17dp"
+                android:text="Гибкая настройка не работает\nпри выборе ника из 3 букв">
+            </TextView>
 
         </RadioGroup>
 
@@ -209,6 +228,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:gravity="center"
+            android:textSize="17dp"
             android:text="Сегодня ты сбежишь из Таркова?"
             android:textStyle="italic">
         </TextView>
