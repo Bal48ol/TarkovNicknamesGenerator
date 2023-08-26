@@ -13,6 +13,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -894,7 +895,15 @@ public class MainActivity extends AppCompatActivity {
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                animateClick(skipButton);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        dialog.dismiss();
+                    }
+                }, 300);
             }
         });
 
@@ -902,9 +911,17 @@ public class MainActivity extends AppCompatActivity {
         rustoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                animateClick(rustoreButton);
                 String url = "https://apps.rustore.ru/app/com.example.tarkovnicknamesgenerator";
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(intent);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                    }
+                }, 300);
             }
         });
 
